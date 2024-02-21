@@ -105,10 +105,8 @@ footer > a {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
+    float: right;
+}   
 
 .right img {
     width: 100%;
@@ -116,16 +114,5 @@ footer > a {
 }
 
 .box {
-    width: 500px;
-    height: 400px;
-    background-color: #999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mibox {
-    width: 500px;
-    height: 400px;
-    background-color: #888;
+    position: absolute;
 }
