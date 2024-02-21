@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    width: 100%;
+    height: 800px;
+    background-color: #bbb;
+}
+
+.contanier {
+    width: 35%;
+    height: 800px;
+    background-color: antiquewhite;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color:aliceblue;
+    display: flex;
+}
+
+.logogo {
+    width: 40%;
+    height: 100px;
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logogo > a {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+nav {
+    width: 60%;
+    height: 100px;
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
