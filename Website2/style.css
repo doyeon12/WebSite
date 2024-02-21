@@ -13,6 +13,7 @@ main {
     width: 100%;
     height: 800px;
     background-color: #bbb;
+    display: flex;
 }
 
 .container {
@@ -102,11 +103,7 @@ footer > a {
     width: 65%;
     height: 800px;
     background-color: #666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-}   
+}
 
 .right img {
     width: 100%;
@@ -114,5 +111,33 @@ footer > a {
 }
 
 .box {
+    width: 400px;
+    height: 300px;
+    background-color: #111;
     position: absolute;
+    bottom: 0;
+}
+
+.mibox {
+    width: 400px;
+    height: 300px;
+    /* background-color: #aaa; */
+}
+
+.mibox > p {
+    font-size: 40px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shbox {
+    width: 400px;
+    height: 90px;
+    /* background-color: #bbb; */
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
