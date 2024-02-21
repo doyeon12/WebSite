@@ -8,6 +8,7 @@ main {
     height: 300px;
     background-color: #ddd;
     display: flex;
+    justify-content: space-around;
 }
 
 a {
@@ -16,23 +17,23 @@ a {
 }
 
 .start {
-    width: 50%;
+    width: 550px;
     height: 300px;
-    text-align: left;
-    font-size: 25px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+    /* background-color: #bbb; */
     justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 25px;
+    font-weight: 900;
 }
 
 .box {
-    width: 50%;
+    width: 500px;
     height: 300px;
+    /* background-color: #ccc; */
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 200px;
 }
 
 .box > button {
@@ -40,7 +41,7 @@ a {
     height: 50px;
     border-radius: 10px;
     font-weight: 900;
-    margin: 3px;
+    margin: 5px;
 }
 
 .box > button:nth-child(1) {
@@ -50,7 +51,6 @@ a {
 }
 
 .box > button:nth-child(2) {
-    background-color: #fff;
     border: none;
     color: darkmagenta;
 }
