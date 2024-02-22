@@ -12,20 +12,20 @@ a {
 main {
     width: 100%;
     height: 800px;
-    background-color: #bbb;
+    /* background-color: #bbb; */
     display: flex;
 }
 
 .container {
     width: 35%;
     height: 800px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .header {
     width: 100%;
     height: 100px;
-    background-color:aliceblue;
+    /* background-color:aliceblue; */
     display: flex;
 }
 
@@ -55,7 +55,7 @@ nav {
 section {
     width: 100%;
     height: 500px;
-    background-color: bisque;
+    /* background-color: bisque; */
     display: flex;
 }
 
@@ -87,7 +87,7 @@ section {
 footer {
     width: 100%;
     height: 200px;
-    background-color:aquamarine;
+    /* background-color:aquamarine; */
     display: flex;
     justify-content: left;
     padding-left: 70px;
@@ -107,7 +107,6 @@ footer > a {
 
 .right img {
     width: 100%;
-    height: 100%;
 }
 
 .box {
