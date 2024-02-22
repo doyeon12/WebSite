@@ -71,17 +71,30 @@ main {
     position: relative;
     width: 500px;
     height: 500px;
-    background-color: lightgreen;
-    display: flex;
-    z-index: 1;
+    /* background-color: lightgreen; */
+    float: left;
 }
 
 .contents {
     width: 500px;
     height: 500px;
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-/* .contents > p{
-    padding-top: 20px;
-} */
+.contents > h1 {
+    text-align: left;
+    color: darkgray;
+    margin-bottom: 10px;
+}
+
+.contents > p{
+    text-align: right;
+    color: lightgray;
+    font-weight: 900;
+}
+
