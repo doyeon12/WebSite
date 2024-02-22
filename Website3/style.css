@@ -98,3 +98,6 @@ main {
     font-weight: 900;
 }
 
+.logo > a:hover {
+    color: rgb(192, 192, 192);
+}
