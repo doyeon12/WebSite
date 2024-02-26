@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    width: 1200px;
+    height: 100px;
+    background-color: lightcoral;
+    display: flex
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    background-color: #aaa;
+}
+
+nav {
+    width: 600px;
+    height: 100px;
+    background-color: lightpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    width: 500px;
+    height: 100px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul > li {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

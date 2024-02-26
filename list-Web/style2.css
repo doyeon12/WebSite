@@ -1,0 +1,74 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    width: 1200px;
+    height: 100px;
+    background-color: lightblue;
+    display: flex
+
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    /* background-color: lightgray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+nav {
+    width: 1200px;
+    height: 100px;
+    /* background-color: lightcyan; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    width: 800px;
+    height: 100px;
+    /* background-color: lightgoldenrodyellow; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+ul > li {
+    width: 140px;
+    height: 100px;
+    /* background-color: lightslategray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBox {
+    width: 450px;
+    height: 100px;
+    /* background-color: lightgrey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBox input {
+    height: 25px;
+    border-radius: 20px;
+    border-color: aquamarine;
+}
+
+.textBox input::placeholder {
+    padding-left: 10px;
+}
