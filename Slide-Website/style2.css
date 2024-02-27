@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.window {
+    width: 1200px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide {
+    position: relative;
+    width: 1200px;
+    height: 1600px;
+    animation: slide 6s infinite linear;
+}
+
+.slide > div {
+    width: 1200px;
+    height: 400px;
+}
+
+@keyframes slide {
+    0% {
+        top: 0;
+    }
+
+    23% {
+        top: 0;
+    }
+
+    33% {
+        top: -400px;
+    }
+
+    56% {
+        top: -400px;
+    }
+
+    66% {
+        top: -800px;
+    }
+
+    90% {
+        top: -800px;
+    }
+
+    100% {
+        top: -1200px;
+    }
+}
