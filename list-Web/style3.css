@@ -10,38 +10,66 @@ li {
 header {
     width: 1200px;
     height: 100px;
-    background-color: lightcoral;
-    display: flex
+    background-color: #111;
+    display: flex;
+    margin: 20px;
+    border-radius: 15px;
 }
 
 .logo {
     width: 200px;
     height: 100px;
-    background-color: #aaa;
+    /* background-color: #aaa; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
 }
 
 nav {
-    width: 600px;
+    width: 800px;
     height: 100px;
-    background-color: lightpink;
+    /* background-color: lightpink; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-ul {
-    width: 500px;
+nav > ul {
+    width: 400px;
     height: 100px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 ul > li {
-    width: 100px;
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: gray; */
+    border: solid 1px #eee;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.Box {
+    width: 200px;
     height: 100px;
+    /* background-color: #999; */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Box > button {
+    width: 120px;
+    height: 55px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 900;
 }
