@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.window {
+    /* margin: 20px; */
+    width: 1200px;
+    height: 400px;
+    overflow: hidden;
+    /* border: 5px solid black; */
+}
+
+.slide {
+    position: relative;
+    width: 7200px;
+    height: 400px;
+    display: flex;
+    animation: slide 8s infinite linear;
+}
+
+.slide > div {
+    width: 1200px;
+    height: 400px;
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+
+    15% {
+        left: 0;
+    }
+
+    20% {
+        left: -1200px;
+    }
+
+    35% {
+        left: -1200px;
+    }
+
+    40% {
+        left: -2400px;
+    }
+
+    55% {
+        left: -2400px;
+    }
+
+    60% {
+        left: -3600px;
+    }
+
+    75% {
+        left: -3600px;
+    }
+
+    80% {
+        left: -4800px;
+    }
+
+    95% {
+        left: -4800px;
+    }
+
+    100% {
+        left: -6000px;
+    }
+}
+
+.screen {
+    width: 1200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.text {
+    position: relative;
+    width: 2400px;
+    height: 100px;
+    display: flex;
+    animation: text 3s infinite linear;
+}
+
+.text > p {
+    width: 1200px;
+    height: 100px;
+}
+
+@keyframes text {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -1200px;
+    }
+}
+
+.display {
+    width: 1200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.SlideBox {
+    width: 6000px;
+    height: 300px;
+    display: flex;
+}
+
+.SlideBox1 {
+    position: relative;
+    width: 6000px;
+    height: 300px;
+    animation: SlideBox 5s infinite linear;
+}
+
+.SlideBox1 > div {
+    width: 1200px;
+    height: 300px;
+}
+
+@keyframes SlideBox {
+    0%{
+        left: 0;
+    }
+
+    100% {
+        left: -1200px
+        ;
+    }
+}
