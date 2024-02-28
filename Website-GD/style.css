@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: 800px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    width: 100%;
+    height: 800px;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    /* background-color: #aaa; */
+    position: relative;
+    z-index: 1;
+    display: flex;
+}
+
+.logo {
+    width: 400px;
+    height: 100px;
+    /* background-color: #999; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+nav {
+    width: 1200px;
+    height: 100px;
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+ul {
+    width: 600px;
+    height: 100px;
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+ul > li {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn {
+    width: 200px;
+    height: 100px;
+    /* background-color: #aaa; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.btn > button {
+    width: 50px;
+    height: 25px;
+    margin-left: 10px;
+    background-color: burlywood;
+    color: #fff;
+    border: none;
+}
+
+/* contents */
+.contents {
+    width: 100%;
+    height: 500px;
+    /* background-color: #aaa; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text {
+    width: 100%;
+    height: 200px;
+    color: #fff;
+    text-align: center;
+    line-height: 300px;
+}
+
+.textBox {
+    width: 1200px;
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: burlywood;
+}
+
+.textBox > p:nth-child(1) {
+    font-size: 25px;
+    color: brown;
+}
