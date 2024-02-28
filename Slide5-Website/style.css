@@ -102,6 +102,7 @@
 .display {
     width: 1200px;
     height: 300px;
+    display: flex;
     overflow: hidden;
 }
 
@@ -129,7 +130,7 @@
     }
 
     100% {
-        left: -1200px
-        ;
+        left: -1200px;
     }
 }
+
