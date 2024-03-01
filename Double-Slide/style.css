@@ -1,0 +1,45 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.window {
+    width: 1200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.slide {
+    position: relative;
+    width: 2400px;
+    height: 300px;
+    display: flex;
+    animation: slide 5s infinite linear;
+}
+
+.slide > div {
+    width: 600px;
+    height: 300px;
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+
+    40% {
+        left: 0px;
+    }
+
+    50% {
+        left: -600px;
+    }
+
+    90% {
+        left: -600px;
+    }
+
+    100% {
+        left: -1200px;
+    }
+}
