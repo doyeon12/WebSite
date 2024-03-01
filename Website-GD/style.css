@@ -110,6 +110,7 @@ ul > li {
 }
 
 .textBox {
+    position: relative;
     width: 1200px;
     height: 200px;
     background-color: #fff;
@@ -122,4 +123,10 @@ ul > li {
 .textBox > p:nth-child(1) {
     font-size: 25px;
     color: brown;
+}
+
+.textBox button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
