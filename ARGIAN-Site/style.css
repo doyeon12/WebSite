@@ -92,7 +92,7 @@ main {
 
 .contents {
     position: absolute;
-    width: 700px;
+    width: 800px;
     height: 200px;
     background-color: lightgreen;
     display: flex;
