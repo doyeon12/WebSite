@@ -91,3 +91,43 @@ nav > ul > a {
     width: 100px;
     height: 50px;
 }
+
+.container {
+    width: 1920px;
+    height: 700px;
+    background-color: #aaa;
+    display: flex;
+}
+
+.window {
+    width: 1920px;
+    height: 700px;
+    overflow: hidden;
+}
+
+.slide {
+    position: relative;
+    width: 5760px;
+    height: 700px;
+    display: flex;
+    animation: slide 5s infinite linear;
+}
+
+.slide > img {
+    width: 1920px;
+    height: 700px;
+}
+
+@keyframes  slide {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: -1920px;
+    }
+
+    100% {
+        left: -5760px;
+    }
+}
