@@ -27,6 +27,11 @@ a {
     font-weight: 900;
 }
 
+.start > p> a:hover {
+    color: rgba(254, 0, 237, 0.7);
+    transition: all 0.1s;
+}
+
 .box {
     width: 500px;
     height: 300px;
@@ -50,7 +55,17 @@ a {
     color: #fff;
 }
 
+.box > button:nth-child(1):hover {
+    background-color: rgba(152, 7, 150, 0.7);
+    transition: all 0.2s;
+}
+
 .box > button:nth-child(2) {
     border: none;
     color: darkmagenta;
+}
+
+.box > button:nth-child(2):hover {
+    background-color: rgba(212, 205, 205, 0.7);
+    transition: all 0.2s;
 }
