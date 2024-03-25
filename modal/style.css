@@ -1,0 +1,36 @@
+input {
+    display: flex;
+}
+
+.modal {
+    width: 400px;
+    height: 300px;
+    background-color: lightblue;
+    display: none
+}
+
+.modal2 {
+    width: 400px;
+    height: 300px;
+    background-color: lightcoral;
+    display: none;
+}
+
+.modal3 {
+    width: 400px;
+    height: 300px;
+    background-color: lightgoldenrodyellow;
+    display: none;
+}
+
+#modal:checked~.modal {
+    display: block;
+}
+
+#modal1:checked~.modal2 {
+    display: block;
+}
+
+#modal2:checked~.modal3 {
+    display: block;
+}
