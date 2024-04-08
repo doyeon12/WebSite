@@ -35,7 +35,7 @@ a {
 	background-color: lightblue;
 }
 
-.menu > ul > li:hover > ul {
+.menu > ul > li:hover > ul {	
 	display: block;
 }
 
