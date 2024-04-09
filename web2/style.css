@@ -1,0 +1,206 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+.body {
+    width: 100%;
+}
+
+.head {
+    width: 100%;
+}
+
+header {
+    width: 1920px;
+    height: 70px;
+    display: flex;
+    background-color: lightblue;
+}
+
+.logo {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 44px;
+    font-weight: 900;
+}
+
+nav {
+    width: 500px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+nav > ul {
+    width: 500px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav > ul > li {
+    width: 100px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rosybrown;
+}
+
+.headerBtn {
+    width: 250px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headerBtn > button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.container {
+    position: relative;
+    width: 1920px;
+    height: 700px;
+    background-color: lightblue;
+}
+
+.topBox {
+    width: 1920px;
+    height: 80px;
+    background-color: burlywood;
+}
+
+.rightBox {
+    position: absolute;
+    left: 0;
+    width: 400px;
+    height: 80px;
+    background-color: lawngreen;
+}
+
+.rightBtn {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightBtn > button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.lang {
+    position: absolute;
+    right: 0;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+}
+
+.langBox > button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.mainBox {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-color: honeydew;
+    margin-top: 40px;
+}
+
+.IdomBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 200px;
+    background-color: lightseagreen;
+}
+
+.items {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+.hint {
+    width: 100px;
+    height: 70px;
+    background-color: darkcyan;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+.example {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    background-color: darkcyan;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.Pronunciation {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 70px;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    line-height: 70px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.return {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 70px;
+    background-color: lavender;
+    text-align: center;
+    line-height: 70px;
+    font-weight: 900;
+    cursor: pointer;
+}
