@@ -78,32 +78,68 @@ nav > ul > li {
 
 .container {
     width: 100%;
+}
+
+.itemBox {
+    max-width: 1920px;
     display: flex;
 }
 
-.conBox {
-    
+.right {
+    width: 50%;
+    height: 900px;
 }
 
 .item1 {
-    width: 300px;
+    width: 600px;
     height: 300px;
     background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
 }
 
 .item2 {
-    width: 300px;
+    width: 600px;
     height: 300px;
-    background-color: lightblue;
+    background-color: lightsalmon;
 }
 
 .item3 {
-    width: 300px;
+    width: 600px;
     height: 300px;
     background-color: lightcoral;
 }
+
+.item1,
+.item2,
+.item3,
+.item4,
+.item5,
+.item6 {
+    margin-top: 15px;
+}
+
+.left {
+    width: 50%;
+    flex-direction: column;
+}
+
 .item4 {
-    width: 300px;
+    width: 600px;
     height: 300px;
-    background-color: lightgoldenrodyellow;
+    background-color: honeydew;
+}
+
+.item5 {
+    width: 600px;
+    height: 300px;
+    background-color: darkblue;
+}
+
+.item6 {
+    width: 600px;
+    height: 300px;
+    background-color: darkcyan;
 }
