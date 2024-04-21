@@ -165,3 +165,9 @@ nav {
     height: 700px;
     background-color: #A5ACE8;
 }
+
+.idiom-sub > p {
+    font-weight: 900;
+    line-height: 60px;
+    font-size: 20px;
+}
