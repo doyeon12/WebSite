@@ -131,10 +131,11 @@ nav {
     line-height: 40px;
 }
 
-/* section 영역 */
+/* con1 영역 */
 .con1 {
     width: 100%;
     height: 400px;
+    margin-bottom: 40px;
 }
 
 .idiom {
@@ -149,4 +150,18 @@ nav {
 
 .idiom > p {
     font-size: 70px;
+}
+
+/* con2 영역 */
+.con2 {
+    width: 100%;
+    height: 700px;
+    display: flex;
+}
+
+.idiom-sub {
+    width: 1200px;
+    max-width: 1200px;
+    height: 700px;
+    background-color: #A5ACE8;
 }
