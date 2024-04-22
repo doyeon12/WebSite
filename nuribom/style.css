@@ -130,6 +130,63 @@ nav {
     line-height: 40px;
 }
 
+input {
+    display: none;
+}
+
+.modalb {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.box {
+    position: fixed;
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#modal1:checked~.modalb {
+    display: block;
+}
+
+.open {
+    cursor: pointer;
+}
+
+#close {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 40px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.stats {
+    width: 600px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.stats > h2 {
+    font-weight: 900;
+}
+
 /* con1 영역 */
 .con1 {
     width: 100%;
@@ -159,6 +216,8 @@ nav {
     border: 1px solid black;
     border-radius: 35px;
     font-size: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 /* con2 영역 */
