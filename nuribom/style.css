@@ -104,7 +104,6 @@ nav {
     align-items: center;
     font-size: 16px;
     font-weight: 900;
-    
 }
 
 .itemBox2 {
@@ -126,7 +125,7 @@ nav {
 .box7,
 .box8,
 .box9 {
-    width: 70px;
+    width: 90px;
     height: 40px;
     line-height: 40px;
 }
@@ -150,6 +149,16 @@ nav {
 
 .idiom > p {
     font-size: 70px;
+}
+
+.idiom > button {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 35px;
+    font-size: 30px;
 }
 
 /* con2 영역 */
