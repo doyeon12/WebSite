@@ -79,7 +79,16 @@ header {
 }
 
 /* 모달 영역 */
-.oneBox {
+.oneBox,
+.twoBox,
+.ThrBox,
+.fouBox,
+.fivBox,
+.sixBox,
+.sevnBox,
+.eightBox,
+.nineBox,
+.tenBox {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -107,18 +116,38 @@ header {
     display: block;
 }
 
-.twoBox {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #fff;
-    display: none;
+#modal1:checked~.twoBox {
+    display: block;
 }
 
+#modal2:checked~.ThrBox {
+    display: block;
+}
 
-#modal1:checked~.twoBox {
+#modal3:checked~.fouBox {
+    display: block;
+}
+
+#modal4:checked~.fivBox {
+    display: block;
+}
+
+#modal5:checked~.sixBox {
+    display: block;
+}
+
+#modal6:checked~.sevnBox {
+    display: block;
+}
+
+#modal7:checked~.eightBox {
+    display: block;
+}
+
+#modal8:checked~.nineBox {
+    display: block;
+}
+
+#modal9:checked~.tenBox {
     display: block;
 }
