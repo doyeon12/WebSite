@@ -90,6 +90,19 @@ header {
     display: none;
 }
 
+.close {
+    width: 100px;
+    height: 50px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+}
+
+.close > label {
+    display: block;
+}
+
 #modal0:checked~.oneBox {
     display: block;
 }
