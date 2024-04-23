@@ -20,7 +20,7 @@ li {
 /* 헤더 영역 */
 header {
     width: 100%;
-    height: 200px;
+    height: 160px;
     display: flex;
     justify-content: center;
 }
@@ -53,7 +53,7 @@ header {
 .conBox {
     position: relative;
     width: 600px;
-    height: 770px;
+    height: 700px;
     border: 1px solid black;
     border-radius: 15px;
 }
@@ -62,7 +62,7 @@ header {
     position: absolute;
     margin-left: 40px;
     width: 800px;
-    height: 750px;
+    height: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;;
     justify-content: center;
@@ -99,6 +99,19 @@ header {
     display: none;
 }
 
+.one,
+.two,
+.thr,
+.fou,
+.fiv,
+.six,
+.sevn,
+.eight,
+.nine,
+.ten {
+    cursor: pointer;
+}
+
 .close {
     width: 100px;
     height: 50px;
@@ -110,6 +123,7 @@ header {
 
 .close > label {
     display: block;
+    cursor: pointer;
 }
 
 #modal0:checked~.oneBox {
