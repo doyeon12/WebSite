@@ -56,10 +56,10 @@ header {
     height: 700px;
     border: 1px solid black;
     border-radius: 15px;
+    margin-top: 20px;
 }
 
 .items {
-    position: absolute;
     margin-left: 40px;
     width: 800px;
     height: 700px;
@@ -78,11 +78,9 @@ header {
     justify-content: center;
 }
 
-/* 모달 영역 */
+/* 아이템 영역 */
 .oneBox,
 .twoBox,
-.ThrBox,
-.fouBox,
 .fivBox,
 .sixBox,
 .sevnBox,
@@ -101,8 +99,6 @@ header {
 
 .one,
 .two,
-.thr,
-.fou,
 .fiv,
 .six,
 .sevn,
@@ -110,6 +106,7 @@ header {
 .nine,
 .ten {
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .close {
@@ -119,6 +116,56 @@ header {
     text-align: center;
     line-height: 50px;
     font-weight: 900;
+}
+
+.btn1 {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.btn1 > button {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn1 > button > a {
+    width: 90px;
+    height: 60px;
+    display: block;
+    line-height: 60px;
+    font-size: 16px;
+}
+
+.btn2 {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn2 > button {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn2 > button > a {
+    width: 90px;
+    height: 60px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 16px;
 }
 
 .close > label {
@@ -131,14 +178,6 @@ header {
 }
 
 #modal1:checked~.twoBox {
-    display: block;
-}
-
-#modal2:checked~.ThrBox {
-    display: block;
-}
-
-#modal3:checked~.fouBox {
     display: block;
 }
 
