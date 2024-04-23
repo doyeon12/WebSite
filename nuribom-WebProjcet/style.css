@@ -168,6 +168,51 @@ header {
     font-size: 16px;
 }
 
+/* 팝업창 영역 */
+.popBox1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: lightgoldenrodyellow;
+}
+
+.title1 {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+}
+
+.pop-menu1 {
+    width: 100%;
+    height: 500px;
+    background-color: lightcoral;
+}
+
+.menu1 {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pop-footer1 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer1 {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 모달 팝업 영역 */
 .close > label {
     display: block;
     cursor: pointer;
