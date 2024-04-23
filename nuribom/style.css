@@ -130,7 +130,7 @@ nav {
     line-height: 40px;
 }
 
-input {
+.box1 > input {
     display: none;
 }
 
@@ -142,7 +142,9 @@ input {
     top: 50%;
     transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.6);
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.6s;
 }
 
 .box {
@@ -156,7 +158,9 @@ input {
 }
 
 #modal1:checked~.modalb {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.6s;
 }
 
 .open {

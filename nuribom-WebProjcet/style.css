@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+/* 헤더 영역 */
+header {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.logo > a > img {
+    width: 100px;
+    height: 100px;
+}
+
+/* 컨텐츠 영역 */
+.contetns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conBox {
+    position: relative;
+    width: 600px;
+    height: 770px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.items {
+    position: absolute;
+    margin-left: 40px;
+    width: 800px;
+    height: 750px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;;
+    justify-content: center;
+    align-items: center;
+}
+
+.conBox > .items > label {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 모달 영역 */
+.oneBox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    display: none;
+}
+
+#modal0:checked~.oneBox {
+    display: block;
+}
+
+.twoBox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    display: none;
+}
+
+
+#modal1:checked~.twoBox {
+    display: block;
+}
