@@ -81,6 +81,10 @@ header {
     margin-left: 10px;
 }
 
+.headerBtn > button:nth-child(1)> label {
+    display: block;
+}
+
 /* nav 영역 */
 nav {
     width: 100%;
