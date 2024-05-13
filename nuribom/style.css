@@ -12,6 +12,10 @@ body a {
     color: inherit;
 }
 
+input{
+    display: none;
+}
+
 /* header 영역 */
 header {
     width: 100%;
@@ -146,6 +150,7 @@ nav {
     top: 50%;
     transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
     display: none;
 }
 

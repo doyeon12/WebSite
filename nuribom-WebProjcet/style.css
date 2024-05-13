@@ -168,6 +168,42 @@ header {
     font-size: 16px;
 }
 
+.check {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check > a {
+    width: 90px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+}
+
+.labelpr {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelpr > a {
+    width: 90px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+}
+
 /* 팝업창 영역 */
 .pop-Box1 {
     position: absolute;
