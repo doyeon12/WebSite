@@ -12,10 +12,6 @@ body a {
     color: inherit;
 }
 
-input{
-    display: none;
-}
-
 /* header 영역 */
 header {
     width: 100%;
@@ -196,6 +192,9 @@ nav {
     font-weight: 900;
 }
 
+#modal1{
+    display: none;
+}
 /* con1 영역 */
 .con1 {
     width: 100%;
