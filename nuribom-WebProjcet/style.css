@@ -305,14 +305,6 @@ header {
     cursor: pointer;
 }
 
-#modal0:checked~.oneBox {
-    display: block;
-}
-
-#modal1:checked~.twoBox {
-    display: block;
-}
-
 #modal4:checked~.fivBox {
     display: block;
 }
