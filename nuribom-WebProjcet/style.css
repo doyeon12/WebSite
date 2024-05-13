@@ -299,6 +299,13 @@ header {
     align-items: center;
 }
 
+.footer2 > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
 /* 모달 팝업 영역 */
 .close > label {
     display: block;
