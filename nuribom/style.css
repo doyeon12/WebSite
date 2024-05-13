@@ -96,7 +96,7 @@ header {
     align-items: center;
     transform: translate(-50%,-50%);
     background-color: #fff;
-    /* display: none; */
+    display: none;
 }
 
 .lbox {
@@ -116,35 +116,9 @@ header {
     border-bottom: 1px solid black;
 }
 
-.id-pass {
-    width: 500px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#modal2:checked~.logb {
+    display: block;
 }
-
-.id {
-    width: 500px;
-    height: 50px;
-} 
-
-.id > input {
-    width: 300px;
-    height: 40px;
-}
-
-.password {
-    width: 500px;
-    height: 50px;
-}
-
-.password > input {
-    width: 300px;
-    height: 40px;
-}
-
 /* nav 영역 */
 nav {
     width: 100%;
