@@ -306,6 +306,22 @@ header {
     font-size: 20px;
 }
 
+.window {
+    width: 800px;
+    height: 100px;
+    background-color: lightcoral;
+    display: flex;
+}
+
+.documents {
+    position: relative;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* 모달 팝업 영역 */
 .close > label {
     display: block;
