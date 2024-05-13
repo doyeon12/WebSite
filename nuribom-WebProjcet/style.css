@@ -326,6 +326,22 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: documents infinite linear 3s;
+}
+
+.documents > li {
+    width: 500px;
+    height: 100px;
+}
+
+@keyframes documents {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 500px;
+    }
 }
 
 /* 모달 팝업 영역 */
