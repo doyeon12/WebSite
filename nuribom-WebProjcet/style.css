@@ -304,6 +304,7 @@ header {
     height: 40px;
     border-radius: 50%;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .footer2 > li {
