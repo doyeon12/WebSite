@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 이전 슬라이드로 이동하는 함수
-    function moveSlidePrev() {
+    // 다음 슬라이드로 이동하는 함수
+    function moveSlideNext() {
         const footer = document.querySelector('.footer2');
         const lastItem = footer.lastElementChild;
         footer.removeChild(lastItem);
         footer.insertBefore(lastItem, footer.firstElementChild);
     }
 
-    // 다음 슬라이드로 이동하는 함수
-    function moveSlideNext() {
+    // 이전 슬라이드로 이동하는 함수
+    function moveSlidePrev() {
         const footer = document.querySelector('.footer2');
         const firstItem = footer.firstElementChild;
         footer.removeChild(firstItem);
