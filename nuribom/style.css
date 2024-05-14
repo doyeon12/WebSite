@@ -160,6 +160,7 @@ header {
     background-color: lightcyan;
     transition: all 0.1s;
     cursor: pointer;
+    box-shadow: 2px 2px 2px 2px;
 }
 
 .push > h3 {
