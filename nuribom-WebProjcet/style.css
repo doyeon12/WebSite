@@ -299,6 +299,18 @@ header {
     align-items: center;
 }
 
+.pop-footer2 > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.footer2 > li {
+    width: 200px;
+    height: 50px;
+}
+
 /* 모달 팝업 영역 */
 .close > label {
     display: block;
