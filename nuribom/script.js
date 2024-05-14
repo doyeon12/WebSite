@@ -1,25 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    function moveIdiomPrev() {
-        const idiomList = document.querySelector('.idiom ul');
-        const lastItem = idiomList.lastElementChild;
-        idiomList.removeChild(lastItem);
-        idiomList.insertBefore(lastItem, idiomList.firstElementChild);
-    }
+    const loginButton = document.querySelector('.headerBtn button:nth-of-type(1)');
+    const loginModal = document.querySelector('.logb');
 
-    function moveIdiomNext() {
-        const idiomList = document.querySelector('.idiom ul');
-        const firstItem = idiomList.firstElementChild;
-        idiomList.removeChild(firstItem);
-        idiomList.appendChild(firstItem);
-    }
-
-    const prevIdiomButton = document.querySelector('.idiom button:first-of-type');
-    prevIdiomButton.addEventListener('click', function () {
-        moveIdiomPrev();
+    loginButton.addEventListener('click', function () {
+        loginModal.style.display = 'block';
     });
 
-    const nextIdiomButton = document.querySelector('.idiom button:last-of-type');
-    nextIdiomButton.addEventListener('click', function () {
-        moveIdiomNext();
+    const closeButton = document.querySelector('.logb .close1');
+
+    closeButton.addEventListener('click', function () {
+        loginModal.style.display = 'none';
+    });
+
+    const loginSubmitButton = document.querySelector('.logb .push');
+
+    loginSubmitButton.addEventListener('click', function () {
+        alert('로그인 되었습니다!');
     });
 });

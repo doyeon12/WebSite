@@ -110,7 +110,7 @@ header {
     left: 50%;
     transform: translate(-50%,-50%);
     width: 500px;
-    height: 500px;
+    height: 600px;
     border: 1px solid black;
     color: #111;
 }
@@ -123,6 +123,47 @@ header {
     align-items: center;
     font-size: 30px;
     border-bottom: 1px solid black;
+}
+
+.log-input {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.log-input > input {
+    width: 450px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.log-input > input::placeholder {
+    padding: 10px;
+}
+
+.push {
+    width: 450px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.push:hover {
+    background-color: lightcyan;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+
+.push > h3 {
+    font-weight: 900;
 }
 
 #modal2:checked~.logb {
