@@ -204,12 +204,6 @@ header {
     font-size: 16px;
 }
 
-.fiv,
-.sevn,
-.nine {
-    background-color: lightcoral;
-}
-
 /* 팝업창 영역 */
 .pop-Box1 {
     position: absolute;
@@ -305,32 +299,29 @@ header {
     align-items: center;
 }
 
-.footer2 > button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-}
-
 .window {
-    width: 800px;
+    position: relative;
+    width: 900px;
     height: 100px;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     display: flex;
 }
 
 .documents {
-    position: relative;
-    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 3300px;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: documents infinite linear 3s;
+    animation: documents infinite linear 7s;
 }
 
 .documents > li {
-    width: 500px;
+    width: 800px;
     height: 100px;
 }
 
