@@ -79,10 +79,15 @@ header {
     background-color: transparent;
     border: none;
     margin-left: 10px;
+    cursor: pointer;
 }
 
-.headerBtn > button:nth-child(1)> label {
-    display: block;
+.headerBtn > input {
+    display: none;
+}
+
+.headerBtn > button > label {
+    cursor: pointer;
 }
 
 .logb {
@@ -100,6 +105,10 @@ header {
 }
 
 .lbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 500px;
     height: 500px;
     border: 1px solid black;
@@ -118,6 +127,10 @@ header {
 
 #modal2:checked~.logb {
     display: block;
+}
+
+.close1 {
+    cursor: pointer;
 }
 /* nav 영역 */
 nav {
