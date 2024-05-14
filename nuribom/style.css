@@ -244,9 +244,10 @@ nav {
     justify-content: center;
     align-items: center;
     background-color: #A5ACE8;
+    z-index: 1;
 }
 
-.idiom > p {
+.idiom > li {
     font-size: 70px;
 }
 
