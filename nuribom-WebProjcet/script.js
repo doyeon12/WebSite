@@ -30,16 +30,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // 8번 버튼에 대한 슬라이드 이동 함수
     function moveSlidePrevEight() {
         const footerEight = document.querySelector('.eightBox .pop-footer2 .footer2');
-        const lastItemEight = footerEight.lastElementChild;
-        footerEight.removeChild(lastItemEight);
-        footerEight.insertBefore(lastItemEight, footerEight.firstElementChild);
+        const firstItemEight = footerEight.firstElementChild;
+        footerEight.removeChild(firstItemEight);
+        footerEight.appendChild(firstItemEight);
     }
 
     function moveSlideNextEight() {
         const footerEight = document.querySelector('.eightBox .pop-footer2 .footer2');
-        const firstItemEight = footerEight.firstElementChild;
-        footerEight.removeChild(firstItemEight);
-        footerEight.appendChild(firstItemEight);
+        const lastItemEight = footerEight.lastElementChild;
+        footerEight.removeChild(lastItemEight);
+        footerEight.insertBefore(lastItemEight, footerEight.firstElementChild);
     }
 
     // 이전 버튼 클릭 이벤트 (8번 버튼)
@@ -57,16 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // 10번 버튼에 대한 슬라이드 이동 함수
     function moveSlidePrevTen() {
         const footerTen = document.querySelector('.tenBox .pop-footer2 .footer2');
-        const lastItemTen = footerTen.lastElementChild;
-        footerTen.removeChild(lastItemTen);
-        footerTen.insertBefore(lastItemTen, footerTen.firstElementChild);
+        const firstItemTen = footerTen.firstElementChild;
+        footerTen.removeChild(firstItemTen);
+        footerTen.appendChild(firstItemTen);
     }
 
     function moveSlideNextTen() {
         const footerTen = document.querySelector('.tenBox .pop-footer2 .footer2');
-        const firstItemTen = footerTen.firstElementChild;
-        footerTen.removeChild(firstItemTen);
-        footerTen.appendChild(firstItemTen);
+        const lastItemTen = footerTen.lastElementChild;
+        footerTen.removeChild(lastItemTen);
+        footerTen.insertBefore(lastItemTen, footerTen.firstElementChild);
     }
 
     // 이전 버튼 클릭 이벤트 (10번 버튼)
