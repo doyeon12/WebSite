@@ -299,42 +299,6 @@ header {
     align-items: center;
 }
 
-.window {
-    position: relative;
-    width: 900px;
-    height: 100px;
-    /* background-color: lightcoral; */
-    display: flex;
-}
-
-.documents {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 3300px;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: documents infinite linear 7s;
-}
-
-.documents > li {
-    width: 800px;
-    height: 100px;
-}
-
-@keyframes documents {
-    0% {
-        left: 0;
-    }
-
-    100% {
-        left: 500px;
-    }
-}
-
 /* 모달 팝업 영역 */
 .close > label {
     display: block;
