@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('로그인 되었습니다!');
             // 입력 필드 값을 지우기
             inputs.forEach(input => input.value = '');
+            // 홈 페이지로 리다이렉트
+            window.location.href = 'index.html'; // 홈 페이지의 URL을 적어주세요
         }
     });
 });
