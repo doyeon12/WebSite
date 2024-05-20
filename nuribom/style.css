@@ -175,6 +175,10 @@ header {
     cursor: pointer;
 }
 
+#modal3 {
+    cursor: pointer;
+}
+
 .modalb1 {
     position: fixed;
     width: 100%;
@@ -200,6 +204,7 @@ header {
     background-color: lightblue;
     text-align: center;
     line-height: 40px;
+    cursor: pointer;
 }
 
 .header-test {
