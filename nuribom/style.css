@@ -173,6 +173,10 @@ header {
 
 .close1 {
     cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 900;
 }
 
 #modal3 {

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (!allFieldsFilled) {
-            alert('다시 시도해주세요');
+            alert('다시 시도해주세요.');
         } else {
             alert('로그인 되었습니다!');
             // 입력 필드 값을 지우기
