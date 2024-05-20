@@ -15,6 +15,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const loginSubmitButton = document.querySelector('.logb .push');
 
     loginSubmitButton.addEventListener('click', function () {
-        alert('로그인 되었습니다!');
+        const inputs = loginModal.querySelectorAll('input');
+        let allFieldsFilled = true;
+
+        inputs.forEach(input => {
+            if (input.value.trim() === '') {
+                allFieldsFilled = false;
+            }
+        });
+
+        if (!allFieldsFilled) {
+            alert('다시 시도해주세요');
+        } else {
+            alert('로그인 되었습니다!');
+            // 입력 필드 값을 지우기
+            inputs.forEach(input => input.value = '');
+        }
     });
 });

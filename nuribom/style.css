@@ -211,6 +211,7 @@ header {
     width: 600px;
     height: 70px;
     text-align: center;
+    border-bottom: 1px solid black;
 }
 
 .header-test > h2 {
