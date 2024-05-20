@@ -52,7 +52,7 @@ header {
 
 .conBox {
     position: relative;
-    width: 600px;
+    width: 1920px;
     height: 700px;
     border: 1px solid black;
     border-radius: 15px;
@@ -61,10 +61,10 @@ header {
 
 .items {
     margin-left: 40px;
-    width: 800px;
+    width: 500px;
     height: 700px;
     display: grid;
-    grid-template-columns: 1fr 1fr;;
+    grid-template-columns: 0.5fr 0.5fr 1fr;
     justify-content: center;
     align-items: center;
 }
