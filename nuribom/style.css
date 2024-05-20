@@ -174,6 +174,84 @@ header {
 .close1 {
     cursor: pointer;
 }
+
+.modalb1 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    /* display: none; */
+}
+
+#modal3:checked~.modalb1 {
+    display: block;
+}
+
+.close2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    height: 40px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 40px;
+}
+
+.header-test {
+    width: 600px;
+    height: 70px;
+    text-align: center;
+}
+
+.header-test > h2 {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 70px;
+}
+
+.test-items {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.test-items > p {
+    background-color: gray;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-items > p > a {
+    display: block;
+}
+
+.test {
+    width: 600px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test > h3 {
+    width: 120px;
+    height: 40px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* nav 영역 */
 nav {
     width: 100%;
