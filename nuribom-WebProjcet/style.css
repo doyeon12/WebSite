@@ -101,9 +101,16 @@ header {
     line-height: 60px;
 }
 
+.window {
+    position: relative;
+    width: 500px;
+    height: 80px;
+    display: flex;
+}
+
 .page-btn {
     position: absolute;
-    width: 500px;
+    width: 1200px;
     height: 80px;
     right: 0;
     left: 1280px;
