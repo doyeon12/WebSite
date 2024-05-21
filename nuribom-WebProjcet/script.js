@@ -55,6 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
             number2.textContent = '8';
             number3.textContent = '9';
         }
+
+        // 페이지 이동 시 conBox3 영역을 보이도록 설정합니다.
+        const conBox3 = document.querySelector('.conBox3');
+        if (currentPage === 2) {
+            conBox3.style.display = 'block';
+        } else {
+            conBox3.style.display = 'none';
+        }
     }
 
     // 초기 페이지 설정
@@ -140,5 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButtonTen = document.querySelector('.tenBox .pop-footer2 button:last-of-type');
     nextButtonTen.addEventListener('click', function () {
         moveSlideNextTen();
+    });
+
+    // 다음 페이지로 이동하는 함수
+    const nextPageButton = document.querySelector(".page-btn button:last-child");
+    nextPageButton.addEventListener("click", function() {
+        // 페이지 이동 시 conBox3 영역을 보이도록 설정합니다.
+        const conBox3 = document.querySelector(".conBox3");
+        conBox3.style.display = "block";
     });
 });
