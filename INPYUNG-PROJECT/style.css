@@ -17,11 +17,7 @@ header {
     width: 100%;
     height: 100px;
     display: flex;
-<<<<<<< HEAD
     background-color: lightblue;
-=======
-    backgrond-color: lightblue;
->>>>>>> 6ed6c974b3e3d4a08fe993d8ae23ec3e3e5edd4c
 }
 
 .logo {

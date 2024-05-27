@@ -106,6 +106,7 @@ header {
     transform: translate(-50%,-50%);
     background-color: #fff;
     display: none;
+    z-index: 1;
 }
 
 .lbox {
@@ -380,21 +381,18 @@ nav {
 }
 
 .idiom {
+    position: relative;
     width: 1200px;
     max-width: 1200px;
     height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #A5ACE8;
-    z-index: 1;
 }
 
-.idiom > li {
+.idiom > .idiom-main >  li {
     font-size: 70px;
 }
 
-.idiom > button {
+.idiom > .idiom-main > button {
     width: 50px;
     height: 50px;
     background-color: transparent;
@@ -406,6 +404,32 @@ nav {
     margin-right: 15px;
 }
 
+.idiom-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.icon > svg {
+    width: 30px;
+    height: 30px;
+}
 /* con2 영역 */
 .con2 {
     width: 100%;
