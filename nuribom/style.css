@@ -298,6 +298,10 @@ nav {
     font-weight: 900;
 }
 
+.itemBox2 > input {
+    display: none;
+}
+
 .box1,
 .box2,
 .box3,
