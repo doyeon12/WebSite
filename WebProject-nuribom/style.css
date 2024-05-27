@@ -1,0 +1,172 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+/* 헤더 영역 */
+header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    border-radius: 10px;
+}
+
+a > img {
+    width: 110px;
+    height: 110px;
+    display: block;
+}
+
+/* 컨테이너 영역역 */
+.container {
+    width: 1300px;
+    height: 700px;
+}
+
+.conBox {
+    width: 1300px;
+    height: 700px;
+    display: flex;
+    border: 1px solid black;
+}
+
+/* 왼쪽 박스 영역 */
+.left {
+    width: 600px;
+    height: 700px;
+}
+
+.btn-box {
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn-box > div {
+    width: 150px;
+    height: 60px;
+    margin-left: 10px;
+    margin-top: 40px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.btn-box > div > a {
+    width: 150px;
+    height: 60px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-box > .blank {
+    background-color: #fff;
+}
+
+/* 오른쪽 박스 영역 */
+.right {
+    width: 600px;
+    height: 700px;
+}
+
+.conBox2 {
+    width: 600px;
+    height: 700px;
+}
+
+.btn-box2 {
+    width: 600px;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn-box2 > input {
+    display: none;
+}
+
+.btn-box2 > label {
+    width: 100px;
+    height: 60px;
+    margin-left: 20px;
+    background-color: lightblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 모달 영역 */
+.modalb {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.close {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.title {
+    width: 100%;
+    height: 100px;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-main {
+    width: 100%;
+    height: 700px;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-footer {
+    width: 100%;
+    height: 200px;
+    background-color: lightgray;
+}
+
+#modal:checked~.modalb {
+    display: block;
+}
