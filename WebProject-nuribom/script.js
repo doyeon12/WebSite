@@ -6,15 +6,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentPosition = 0;
     const liWidth = liList[0].offsetWidth;
+    const windowWidth = windowElem.offsetWidth;
+    const visibleBtns = Math.floor(windowWidth / liWidth);
+    const totalBtns = liList.length;
 
+    // 오른쪽 버튼 클릭 시
     rightBtn.addEventListener('click', function() {
         currentPosition -= liWidth;
-        if (currentPosition < -liWidth * (liList.length - 10)) {
-            currentPosition = -liWidth * (liList.length - 10);
+        if (currentPosition < -liWidth * (totalBtns - visibleBtns)) {
+            currentPosition = -liWidth * (totalBtns - visibleBtns);
         }
         windowElem.style.transform = `translateX(${currentPosition}px)`;
     });
 
+    // 왼쪽 버튼 클릭 시
     leftBtn.addEventListener('click', function() {
         currentPosition += liWidth;
         if (currentPosition > 0) {
