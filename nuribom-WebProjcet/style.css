@@ -257,6 +257,108 @@ header {
     font-size: 16px;
 }
 
+.btn3 {
+    width: 95px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn3 > button {
+    width: 95px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn3 > button > a {
+    display: block;
+    width: 95px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn4 {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn4 > button {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.btn4 > button > a {
+    display: block;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn5 {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn5 > button {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn5 > button > a {
+    width: 90px;
+    height: 60px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpt {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpt > button {
+    width: 90px;
+    height: 60px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.gpt > button > a {
+    width: 90px;
+    height: 60px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* 팝업창 영역 */
 .pop-Box1 {
     position: absolute;
