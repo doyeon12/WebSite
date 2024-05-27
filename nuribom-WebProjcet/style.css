@@ -472,26 +472,6 @@ header {
     cursor: pointer;
 }
 
-#modal4:checked~.fivBox {
-    display: block;
-}
-
-#modal5:checked~.sixBox {
-    display: block;
-}
-
-#modal6:checked~.sevnBox {
-    display: block;
-}
-
 #modal7:checked~.eightBox {
-    display: block;
-}
-
-#modal8:checked~.nineBox {
-    display: block;
-}
-
-#modal9:checked~.tenBox {
     display: block;
 }
