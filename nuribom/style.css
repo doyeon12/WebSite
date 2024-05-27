@@ -423,12 +423,12 @@ nav {
     display: flex;
     justify-content: right;
     bottom: 0;
-    cursor: pointer;
 }
 
 .icon > svg {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 /* con2 영역 */
 .con2 {
