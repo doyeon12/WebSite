@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loginButton = document.querySelector('.btn-box button:nth-of-type(1)');
+    const loginButton = document.querySelector('#loginButton');
     const loginModal = document.querySelector('.logb');
+    const closeButton = document.querySelector('.logb .close1');
+    const loginSubmitButton = document.querySelector('.logb .submit');
 
+    // 로그인 버튼 클릭 시 로그인 모달 열기
     loginButton.addEventListener('click', function () {
         loginModal.style.display = 'block';
     });
 
-    const closeButton = document.querySelector('.logb .close');
-
+    // 닫기 버튼 클릭 시 로그인 모달 닫기
     closeButton.addEventListener('click', function () {
         loginModal.style.display = 'none';
     });
 
-    const loginSubmitButton = document.querySelector('.logb .submit');
-
+    // 로그인 제출 버튼 클릭 시 입력 값 확인
     loginSubmitButton.addEventListener('click', function () {
         const inputs = loginModal.querySelectorAll('input');
         let allFieldsFilled = true;
@@ -34,5 +35,4 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'index.html'; // 홈 페이지의 URL을 적어주세요
         }
     });
-
 });
