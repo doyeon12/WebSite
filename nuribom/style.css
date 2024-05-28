@@ -227,7 +227,7 @@ header {
 
 .test-items {
     width: 600px;
-    height: 200px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,14 +244,6 @@ header {
 
 .test-items > p > a {
     display: block;
-}
-
-.test {
-    width: 600px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .test > h3 {
