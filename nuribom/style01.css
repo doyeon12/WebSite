@@ -116,4 +116,5 @@ header {
     height: 50px;
     display: flex;
     font-size: 18px;
+    cursor: pointer;
 }
