@@ -448,9 +448,12 @@ nav {
     background-color: #A5ACE8;
 }
 
-.idiom-sub > p {
+.idiom-text {
+    width: 1200px;
+    height: 400px;
+}
+
+.idiom-text > p {
+    font-size: 21px;
     font-weight: 900;
-    line-height: 60px;
-    font-size: 20px;
-    margin-left: 20px;
 }
