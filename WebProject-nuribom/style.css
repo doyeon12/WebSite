@@ -45,27 +45,26 @@ a > img {
 
 .conBox {
     width: 1300px;
-    height: 700px;
-    display: flex;
+    height: 1200px;
     border: 1px solid black;
 }
 
 /* 왼쪽 박스 영역 */
 .left {
-    width: 600px;
-    height: 700px;
+    width: 700px;
+    height: 600px;
 }
 
 .btn-box {
-    width: 600px;
-    height: 500px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 900px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .btn-box > div {
-    width: 150px;
-    height: 60px;
+    width: 400px;
+    height: 100px;
     margin-left: 10px;
     margin-top: 40px;
     background-color: lightblue;
@@ -73,8 +72,8 @@ a > img {
 }
 
 .btn-box > div > a {
-    width: 150px;
-    height: 60px;
+    width: 400px;
+    height: 100px;
     display: block;
     display: flex;
     justify-content: center;
@@ -88,7 +87,7 @@ a > img {
 /* 오른쪽 박스 영역 */
 .right {
     width: 600px;
-    height: 700px;
+    height: 400px;
 }
 
 .conBox2 {
@@ -97,10 +96,10 @@ a > img {
 }
 
 .btn-box2 {
-    width: 600px;
-    height: 700px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 900px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .btn-box2 > input {
@@ -108,8 +107,8 @@ a > img {
 }
 
 .btn-box2 > label {
-    width: 100px;
-    height: 60px;
+    width: 400px;
+    height: 100px;
     margin-left: 20px;
     margin-top: 30px;
     background-color: lightblue;
