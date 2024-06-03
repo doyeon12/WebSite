@@ -1,18 +1,21 @@
 // script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const slideContainer = document.querySelector('.slide-container');
+    const slideLeftButton = document.querySelector('.slide-left');
+    const slideRightButton = document.querySelector('.slide-right');
+    
+    let currentIndex = 0;
+    const slideWidth = 200; // 각 슬라이드의 너비와 동일하게 설정
 
-const slideList = document.getElementById('slide-list');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let currentPosition = 0;
+    slideRightButton.addEventListener('click', () => {
+        currentIndex++;
+        slideContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    });
 
-prevBtn.addEventListener('click', () => {
-    if (currentPosition > 0) {
-        currentPosition--;
-        slideList.style.transform = `translateX(${-currentPosition * 100}%)`;
-    }
+    slideLeftButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            slideContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+    });
 });
-
-nextBtn.addEventListener('click', () => {
-    if (currentPosition < slideList.children.length - 1) {
-        currentPosition++;
-        slideList.style.transform = `

@@ -37,7 +37,7 @@ a > img {
     display: block;
 }
 
-/* 컨테이너 영역역 */
+/* 컨테이너 영역 */
 .container {
     width: 1300px;
     height: 700px;
@@ -172,26 +172,49 @@ a > img {
 }
 
 .footerBtn {
-    width: 1920px;
+    width: 1100px;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
+    position: relative;
 }
 
 .window {
     width: 1000px;
     height: 100px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
-.footerBtn > .window > button {
+.window button {
+    position: absolute;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background-color: #ddd;
+}
+
+.slide-left {
+    left: 0;
+}
+
+.slide-right {
+    right: 0;
+}
+
+.slide-container {
+    display: flex;
+    transition: transform 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.slide-container li {
+    min-width: 200px;
+    list-style-type: none;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #modal:checked~.modalb {
