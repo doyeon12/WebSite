@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (idInput.value.trim() === '' || passwordInput.value.trim() === '') {
             alert('다시 시도해주세요.');
         } else if (koreanRegex.test(idInput.value)) {
-            alert('다시 시도하세요.');
+            alert('영어만 사용 가능');
         } else {
-            alert('로그인 되었습니다!');
+            alert('로그인 성공!');
             // 입력 필드 값을 지우기
             idInput.value = '';
             passwordInput.value = '';
