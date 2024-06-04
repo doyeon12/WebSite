@@ -384,6 +384,10 @@ header {
     display: none;
 }
 
+.box9 > label {
+    cursor: pointer;
+}
+
 /* nav 영역 */
 nav {
     width: 100%;
