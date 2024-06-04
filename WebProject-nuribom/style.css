@@ -39,19 +39,20 @@ a > img {
 
 /* 컨테이너 영역 */
 .container {
-    width: 1300px;
-    height: 700px;
+    width: 2500px;
+    height: 1200px;
 }
 
 .conBox {
-    width: 1300px;
+    width: 2500px;
     height: 1200px;
+    display: flex;
     border: 1px solid black;
 }
 
 /* 왼쪽 박스 영역 */
 .left {
-    width: 700px;
+    width: 1250px;
     height: 600px;
 }
 
@@ -86,8 +87,8 @@ a > img {
 
 /* 오른쪽 박스 영역 */
 .right {
-    width: 600px;
-    height: 400px;
+    width: 1250px;
+    height: 600px;
 }
 
 .conBox2 {

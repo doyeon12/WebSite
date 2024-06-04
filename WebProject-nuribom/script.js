@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const slideLeftButton = slideLeftButtons[index];
         const slideRightButton = slideRightButtons[index];
         let currentIndex = 0;
-        const slideWidth = 200; // 각 슬라이드의 너비와 동일하게 설정
+        const slideWidth = 400; // 각 슬라이드의 너비와 동일하게 설정
         const maxIndex = Math.min(container.querySelectorAll('li').length - 1, 2); // 최대 페이지 수를 3페이지로 제한
 
         slideRightButton.addEventListener('click', () => {
