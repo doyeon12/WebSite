@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style01.css">
     <title>Document</title>
+    <style>
+        .correct {
+            border: 2px solid green;
+        }
+        .incorrect {
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,10 +33,10 @@
             </div>
             <div class="idiom-text">
                 <div class="hanja">
-                    <button>九死一生</button>
-                    <button>苦盡甘來</button>
-                    <button>刮目相對</button>
-                    <button>近墨者黑</button>
+                    <button id="btn1" data-correct="false">九死一生</button>
+                    <button id="btn2" data-correct="true">苦盡甘來</button>
+                    <button id="btn3" data-correct="false">刮目相對</button>
+                    <button id="btn4" data-correct="false">近墨者黑</button>
                 </div>
             </div>
             <div class="unkown">
@@ -36,5 +44,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.hanja button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.getAttribute('data-correct') === 'true') {
+                    this.classList.add('correct');
+                    this.classList.remove('incorrect');
+                } else {
+                    this.classList.add('incorrect');
+                    this.classList.remove('correct');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
