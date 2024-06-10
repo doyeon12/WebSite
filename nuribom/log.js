@@ -14,6 +14,8 @@ document.getElementById('loginButton').addEventListener('click', function() {
     // 로그인 성공 여부를 판단하는 로직
     if (username && password) {
         alert('로그인 성공');
+        // 로그인 성공 시 index.html로 이동
+        window.location.href = 'index.html';
     } else {
         alert('아이디와 비밀번호를 입력해주세요.');
     }
