@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .warp {
     position: absolute;
     top: 50%;
@@ -20,6 +25,10 @@
     text-align: center;
     line-height: 70px;
     border-bottom: 1px solid black;
+}
+
+.head > h1 {
+    cursor: default;
 }
 
 .main {
@@ -41,7 +50,7 @@
 
 .push {
     width: 400px;
-    height: 100px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -60,6 +69,29 @@
 .push > button:hover {
     background-color: lightblue;
     transition: 0.1s;
+}
+
+.register {
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 40px;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.register > a {
+    display: inline-block;
+    width: 400px;
+    height: 40px;
+}
+
+.register:hover {
+    background-color: lightcoral;
+    transition: 0.2s;
 }
 
 input::placeholder {
