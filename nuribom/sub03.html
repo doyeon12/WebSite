@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style03.css">
     <title>Document</title>
+    <style>
+        .correct {
+            border: 2px solid #80ED99;
+        }
+        .incorrect {
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,15 +28,15 @@
                 <h2>1 / 20개</h2>
             </div>
             <div class="test-text">
-                <h1>고진감래</h1>
-                <h2>괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말</h2>
+                <h1>과유불급</h1>
+                <h2>정도가 지나친 것은 부족한 것보다 못하다는 말</h2>
             </div>
             <div class="idiom-text">
                 <div class="hanja">
-                    <button>九死一生</button>
-                    <button>苦盡甘來</button>
-                    <button>刮目相對</button>
-                    <button>近墨者黑</button>
+                    <button data-correct="false">九死一生</button>
+                    <button data-correct="false">苦盡甘來</button>
+                    <button data-correct="false">刮目相對</button>
+                    <button data-correct="true">近墨者黑</button>
                 </div>
             </div>
             <div class="unkown">
@@ -36,5 +44,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.hanja button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.getAttribute('data-correct') === 'true') {
+                    this.classList.add('correct');
+                    this.classList.remove('incorrect');
+                } else {
+                    this.classList.add('incorrect');
+                    this.classList.remove('correct');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
