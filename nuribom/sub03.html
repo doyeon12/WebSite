@@ -12,6 +12,9 @@
         .incorrect {
             border: 2px solid red;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -25,19 +28,10 @@
     <div class="idiom">
         <div class="test">
             <div class="point">
-                <h2>1 / 20개</h2>
+                <h2 id="progress">1 / 20개</h2>
             </div>
-            <div class="test-text">
-                <h1>과유불급</h1>
-                <h2>정도가 지나친 것은 부족한 것보다 못하다는 말</h2>
-            </div>
-            <div class="idiom-text">
-                <div class="hanja">
-                    <button data-correct="false">九死一生</button>
-                    <button data-correct="false">苦盡甘來</button>
-                    <button data-correct="false">刮目相對</button>
-                    <button data-correct="true">近墨者黑</button>
-                </div>
+            <div id="questions-container">
+                <!-- 문제들이 동적으로 추가될 것입니다. -->
             </div>
             <div class="unkown">
                 <p>잘 모르겠어요</p>
@@ -46,17 +40,264 @@
     </div>
 
     <script>
-        document.querySelectorAll('.hanja button').forEach(button => {
-            button.addEventListener('click', function() {
-                if (this.getAttribute('data-correct') === 'true') {
-                    this.classList.add('correct');
-                    this.classList.remove('incorrect');
-                } else {
-                    this.classList.add('incorrect');
-                    this.classList.remove('correct');
-                }
+        const questions = [
+            {
+                text: '과유불급',
+                desc: '정도가 지나친 것은 부족한 것보다 못하다는 말',
+                options: [
+                    { text: '九死一生', correct: false },
+                    { text: '苦盡甘來', correct: false },
+                    { text: '刮目相對', correct: false },
+                    { text: '近墨者黑', correct: true }
+                ]
+            },
+            // 19개의 문제를 더 추가합니다.
+            {
+                text: '구사일생',
+                desc: '아홉 번 죽을 뻔하다 한 번 살아난다는 뜻으로 죽을 고비를 여러 번 넘기고 간신히 목숨을 건진다는 말',
+                options: [
+                    { text: '九死一生', correct: true },
+                    { text: '苦盡甘來', correct: false },
+                    { text: '刮目相對', correct: false },
+                    { text: '近墨者黑', correct: false }
+                ]
+            },
+            {
+                text: '고진감래',
+                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
+                options: [
+                    { text: '九死一生', correct: false },
+                    { text: '苦盡甘來', correct: true },
+                    { text: '刮目相對', correct: false },
+                    { text: '近墨者黑', correct: false }
+                ]
+            },
+            {
+                text: '사면초가',
+                desc: '사방이 모두 적에게 포위되어 있다, 도움이 없는 곤란한 지경에 빠짐',
+                options: [
+                    { text: '四面楚歌', correct: true },
+                    { text: '天高馬肥', correct: false },
+                    { text: '指鹿爲馬', correct: false },
+                    { text: '名不虛傳', correct: false }
+                ]
+            },
+            {
+                text: '역지사지',
+                desc: '다른 사람의 입장에서 생각하라',
+                options: [
+                    { text: '自强不息', correct: false },
+                    { text: '和光同塵', correct: false },
+                    { text: '易地思之', correct: true },
+                    { text: '風樹之嘆', correct: false }
+                ]
+            },
+            {
+                text: '일석이조',
+                desc: '하나를 해서 두 가지 좋은 결과를 얻음',
+                options: [
+                    { text: '一石二鳥', correct: true },
+                    { text: '千篇一律', correct: false },
+                    { text: '掩耳盜鈴', correct: false },
+                    { text: '烏飛梨落', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '동문서답',
+                desc: '동쪽을 묻는데 서쪽을 답함, 질문에 맞지 않는 엉뚱한 대답',
+                options: [
+                    { text: '東問西答', correct: true },
+                    { text: '大器晩成', correct: false },
+                    { text: '畫龍點睛', correct: false },
+                    { text: '走馬看山', correct: false }
+                ]
+            },
+            {
+                text: '일편단심',
+                desc: '한 조각 붉은 마음, 한결같은 충성이나 변치 않는 마음',
+                options: [
+                    { text: '一片丹心', correct: true },
+                    { text: '一瀉千里', correct: false },
+                    { text: '一擧兩得', correct: false },
+                    { text: '一望無際', correct: false }
+                ]
+            },
+            {
+                text: '천고마비',
+                desc: '하늘은 높고 말은 살찐다, 가을을 뜻함',
+                options: [
+                    { text: '千慮一得', correct: false },
+                    { text: '千篇一律', correct: false },
+                    { text: '千里眼', correct: false },
+                    { text: '天高馬肥', correct: true }
+                ]
+            },
+            {
+                text: '풍수지탄',
+                desc: '바람과 나무의 탄식, 부모를 잃은 슬픔',
+                options: [
+                    { text: '風樹之嘆', correct: true },
+                    { text: '風前燈火', correct: false },
+                    { text: '風飛霜降', correct: false },
+                    { text: '風餐露宿', correct: false }
+                ]
+            },
+            {
+                text: '대기만성',
+                desc: '큰 그릇은 늦게 이루어짐, 큰 인물이 되기 위해 많은 노력과 시간이 필요함',
+                options: [
+                    { text: '大器晩成', correct: true },
+                    { text: '大同小異', correct: false },
+                    { text: '大義滅親', correct: false },
+                    { text: '大恩大德', correct: false }
+                ]
+            },
+            {
+                text: '자승자박',
+                desc: '자기가 만든 줄로 자기를 묶는다, 자신이 한 말과 행동에 자신이 구속되어 곤란하게 됨',
+                options: [
+                    { text: '自繩自縛', correct: true },
+                    { text: '自强不息', correct: false },
+                    { text: '自暴自棄', correct: false },
+                    { text: '自業自得', correct: false }
+                ]
+            },
+            {
+                text: '일희일비',
+                desc: '한번 기뻐하고 한번 슬퍼함, 기쁜 일과 슬픈 일이 번갈아 일어남',
+                options: [
+                    { text: '一喜一悲', correct: true },
+                    { text: '一攫千金', correct: false },
+                    { text: '一瀉千里', correct: false },
+                    { text: '一石二鳥', correct: false }
+                ]
+            },
+            {
+                text: '고군분투',
+                desc: '적은 병력으로 분투함, 어려운 상황에서 혼자 힘들게 싸움',
+                options: [
+                    { text: '孤軍奮闘', correct: true },
+                    { text: '高枕安眠', correct: false },
+                    { text: '苦肉之策', correct: false },
+                    { text: '孤掌難鳴', correct: false }
+                ]
+            },
+            {
+                text: '행운유수',
+                desc: '물 흐르듯 자연스럽고 막힘이 없음',
+                options: [
+                    { text: '行雲流水', correct: true },
+                    { text: '鶴首苦待', correct: false },
+                    { text: '學而不厭', correct: false },
+                    { text: '焚書坑儒', correct: false }
+                ]
+            },
+            {
+                text: '유구무언',
+                desc: '입은 있으나 말이 없다, 변명할 말이 없음',
+                options: [
+                    { text: '有口無言', correct: true },
+                    { text: '有名無實', correct: false },
+                    { text: '有始有終', correct: false },
+                    { text: '有備無患', correct: false }
+                ]
+            },
+            {
+                text: '백발백중',
+                desc: '쏠 때마다 백 번을 맞춤, 무슨 일이나 틀림없이 잘 맞음',
+                options: [
+                    { text: '百發百中', correct: true },
+                    { text: '百折不撓', correct: false },
+                    { text: '百家爭鳴', correct: false },
+                    { text: '百聞不如一見', correct: false }
+                ]
+            },
+            {
+                text: '청산유수',
+                desc: '말을 청산유수처럼 잘함, 말을 거침없이 잘함',
+                options: [
+                    { text: '靑山流水', correct: true },
+                    { text: '靑雲之志', correct: false },
+                    { text: '靑出於藍', correct: false },
+                    { text: '靑眼白眼', correct: false }
+                ]
+            },
+            {
+                text: '이심전심',
+                desc: '말하지 않아도 마음에서 마음으로 전함',
+                options: [
+                    { text: '以心傳心', correct: true },
+                    { text: '二律背反', correct: false },
+                    { text: '二者擇一', correct: false },
+                    { text: '二重人格', correct: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion(index) {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = ''; // 기존 문제를 비움
+
+            const question = questions[index];
+
+            const questionText = document.createElement('h1');
+            questionText.innerText = question.text;
+            container.appendChild(questionText);
+
+            const questionDesc = document.createElement('h2');
+            questionDesc.innerText = question.desc;
+            container.appendChild(questionDesc);
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'hanja';
+
+            question.options.forEach((option, i) => {
+                const button = document.createElement('button');
+                button.innerText = option.text;
+                button.setAttribute('data-correct', option.correct);
+                button.addEventListener('click', function() {
+                    if (option.correct) {
+                        button.classList.add('correct');
+                        button.classList.remove('incorrect');
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 1000); // 1초 후 다음 문제로 이동
+                    } else {
+                        button.classList.add('incorrect');
+                        button.classList.remove('correct');
+                    }
+                });
+                optionsDiv.appendChild(button);
             });
-        });
+
+            container.appendChild(optionsDiv);
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+                document.getElementById('progress').innerText = `${currentQuestionIndex + 1} / ${questions.length}개`;
+            } else {
+                alert('모든 문제를 완료했습니다!');
+                window.location.href = 'index.html'; // 모든 문제를 완료하면 index.html로 이동
+            }
+        }
+
+        // 첫 번째 문제 로드
+        loadQuestion(currentQuestionIndex);
     </script>
 </body>
 </html>
