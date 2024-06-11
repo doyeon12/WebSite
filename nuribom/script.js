@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // 로그인 관련 코드
     const loginButton = document.querySelector('.headerBtn button:nth-of-type(1)');
     const loginModal = document.querySelector('.logb');
     const closeButton = document.querySelector('.logb .close1');
@@ -34,6 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
             // 홈 페이지로 리다이렉트
             window.location.href = 'index.html'; // 홈 페이지의 URL을 적어주세요
         }
-        
+    });
+
+    // 오디오 관련 코드
+    const audioIcon = document.getElementById('audio-icon');
+    const audio = document.getElementById('audio');
+
+    audioIcon.addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
     });
 });
