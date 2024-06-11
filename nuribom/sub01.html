@@ -25,19 +25,10 @@
     <div class="idiom">
         <div class="test">
             <div class="point">
-                <h2>1 / 5개</h2>
+                <h2 id="progress">1 / 5개</h2>
             </div>
-            <div class="test-text">
-                <h1>고진감래</h1>
-                <h2>괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말</h2>
-            </div>
-            <div class="idiom-text">
-                <div class="hanja">
-                    <button id="btn1" data-correct="false">九死一生</button>
-                    <button id="btn2" data-correct="true">苦盡甘來</button>
-                    <button id="btn3" data-correct="false">刮目相對</button>
-                    <button id="btn4" data-correct="false">近墨者黑</button>
-                </div>
+            <div id="questions-container">
+                <!-- 문제들이 동적으로 추가될 것입니다. -->
             </div>
             <div class="unkown">
                 <p>잘 모르겠어요</p>
@@ -46,17 +37,113 @@
     </div>
 
     <script>
-        document.querySelectorAll('.hanja button').forEach(button => {
-            button.addEventListener('click', function() {
-                if (this.getAttribute('data-correct') === 'true') {
-                    this.classList.add('correct');
-                    this.classList.remove('incorrect');
-                } else {
-                    this.classList.add('incorrect');
-                    this.classList.remove('correct');
-                }
+        const questions = [
+            {
+                text: '고진감래',
+                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
+                options: [
+                    { text: '九死一生', correct: false },
+                    { text: '苦盡甘來', correct: true },
+                    { text: '刮目相對', correct: false },
+                    { text: '近墨者黑', correct: false }
+                ]
+            },
+            {
+                text: '사면초가',
+                desc: '사방이 모두 적에게 포위되어 있다, 도움이 없는 곤란한 지경에 빠짐',
+                options: [
+                    { text: '四面楚歌', correct: true },
+                    { text: '天高馬肥', correct: false },
+                    { text: '指鹿爲馬', correct: false },
+                    { text: '名不虛傳', correct: false }
+                ]
+            },
+            {
+                text: '역지사지',
+                desc: '다른 사람의 입장에서 생각하라',
+                options: [
+                    { text: '自强不息', correct: false },
+                    { text: '和光同塵', correct: false },
+                    { text: '易地思之', correct: true },
+                    { text: '風樹之嘆', correct: false }
+                ]
+            },
+            {
+                text: '일석이조',
+                desc: '하나를 해서 두 가지 좋은 결과를 얻음',
+                options: [
+                    { text: '一石二鳥', correct: true },
+                    { text: '千篇一律', correct: false },
+                    { text: '掩耳盜鈴', correct: false },
+                    { text: '烏飛梨落', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion(index) {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = ''; // 기존 문제를 비움
+
+            const question = questions[index];
+
+            const questionText = document.createElement('h1');
+            questionText.innerText = question.text;
+            container.appendChild(questionText);
+
+            const questionDesc = document.createElement('h2');
+            questionDesc.innerText = question.desc;
+            container.appendChild(questionDesc);
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'hanja';
+
+            question.options.forEach((option, i) => {
+                const button = document.createElement('button');
+                button.innerText = option.text;
+                button.setAttribute('data-correct', option.correct);
+                button.addEventListener('click', function() {
+                    if (option.correct) {
+                        button.classList.add('correct');
+                        button.classList.remove('incorrect');
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 1000); // 1초 후 다음 문제로 이동
+                    } else {
+                        button.classList.add('incorrect');
+                        button.classList.remove('correct');
+                    }
+                });
+                optionsDiv.appendChild(button);
             });
-        });
+
+            container.appendChild(optionsDiv);
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+                document.getElementById('progress').innerText = `${currentQuestionIndex + 1} / ${questions.length}개`;
+            } else {
+                alert('모든 문제를 완료했습니다!');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // 첫 번째 문제 로드
+        loadQuestion(currentQuestionIndex);
     </script>
 </body>
 </html>
