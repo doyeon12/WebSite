@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -82,7 +82,58 @@ nav > ul > li {
     width: 3600px;
     height: 800px;
     display: flex;
-    animation: 3s slide infinite linear;
+    animation: 10s slide infinite linear;
+}
+
+.slides > img {
+    width: 1200px;
+    height: 800px;
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+
+    15% {
+        left: 0;
+    }
+
+    20% {
+        left: -1200px;
+    }
+
+    35% {
+        left: -1200px;
+    }
+
+    40% {
+        left: -2400px;
+    }
+
+    55% {
+        left: -2400px;
+    }
+
+    60% {
+        left: -3600px;
+    }
+
+    75% {
+        left: -3600px;
+    }
+
+    80% {
+        left: -4800px;
+    }
+
+    95% {
+        left: -4800px;
+    }
+
+    100% {
+        left: -6000px;
+    }
 }
 
 .box > img {
