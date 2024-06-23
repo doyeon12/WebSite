@@ -467,6 +467,36 @@ nav {
     overflow: hidden;
 }
 
+
+/* 추가된 CSS */
+.idiom-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1100px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.idiom-main li {
+    list-style: none;
+    display: inline-block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.idiom-main button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#idiom-text {
+    font-size: 30px;
+
+}
+
 .icon {
     position: absolute;
     width: 500px;
