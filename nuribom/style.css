@@ -42,6 +42,10 @@ header {
     line-height: 100px;
 }
 
+.logb {
+    display: none;
+}
+
 .inBox {
     position: relative;
     width: 800px;
