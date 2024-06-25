@@ -77,16 +77,16 @@ a {
     text-align: center;
 }
 
-.register > a:hover {
-    color: blue;
-    transition: all 0.1s;
-}
-
 .items {
     width: 400px;
     height: 40px;
     text-align: center;
     line-height: 40px;
+}
+
+.items > a:nth-child(1):hover {
+    color: blue;
+    transition: all 0.1s;
 }
 
 input::placeholder {
