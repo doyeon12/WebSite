@@ -75,23 +75,13 @@ a {
     width: 400px;
     height: 40px;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    line-height: 40px;
-    font-weight: 900;
-    font-size: 20px;
-    cursor: pointer;
 }
 
-.register > a {
-    display: inline-block;
+.items {
     width: 400px;
     height: 40px;
-}
-
-.register:hover {
-    background-color: lightcoral;
-    transition: 0.2s;
+    text-align: center;
+    line-height: 40px;
 }
 
 input::placeholder {
