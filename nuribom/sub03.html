@@ -34,7 +34,7 @@
                 <!-- 문제들이 동적으로 추가될 것입니다. -->
             </div>
             <div class="unkown">
-                <p>잘 모르겠어요</p>
+                <p id="skip-button">잘 모르겠어요</p>
             </div>
         </div>
     </div>
@@ -298,6 +298,11 @@
 
         // 첫 번째 문제 로드
         loadQuestion(currentQuestionIndex);
+
+        // 잘 모르겠어요 버튼 클릭 시 다음 문제로 이동
+        document.getElementById('skip-button').addEventListener('click', function() {
+            nextQuestion();
+        });
     </script>
 </body>
 </html>
