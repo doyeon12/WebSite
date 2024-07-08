@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // 로그아웃 버튼 클릭 시 메시지 표시
+    const logoutButton = document.getElementById('logout-button');
+    logoutButton.addEventListener('click', function() {
+        alert('먼저 로그인을 해주세요.');
+    });
+
     // 오디오 관련 코드
     const audioIcon = document.getElementById('audio-icon');
     const audio = document.getElementById('audio');
