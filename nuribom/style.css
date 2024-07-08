@@ -422,6 +422,19 @@ nav {
     font-weight: 900;
 }
 
+.now-main {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.now-main > h1 {
+    font-size: 100px;
+    color: red;
+}
+
 #modal1 {
     display: none;
 }
