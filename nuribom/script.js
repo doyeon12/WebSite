@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.getElementById('logout-button');
     logoutButton.addEventListener('click', function() {
         alert('먼저 로그인을 해주세요.');
+        location.href ="log.html";
     });
 
     // 오디오 관련 코드
