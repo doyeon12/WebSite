@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
             passwordInput.value = '';
             // 홈 페이지로 리다이렉트
             window.location.href = 'index.html'; // 홈 페이지의 URL을 적어주세요
+            // 로그아웃 버튼 보이기
+            logoutButton.style.display = 'inline-block';
         }
     });
 
