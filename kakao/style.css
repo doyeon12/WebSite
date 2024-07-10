@@ -91,3 +91,7 @@ nav > ul > li {
     justify-content: center;
     align-items: center;
 }
+
+.box1 > svg {
+    font-size: 30px;
+}
