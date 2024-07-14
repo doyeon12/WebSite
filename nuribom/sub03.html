@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style03.css">
+    <link rel="stylesheet" href="style02.css">
     <title>Document</title>
     <style>
         .correct {
@@ -12,8 +12,38 @@
         .incorrect {
             border: 2px solid red;
         }
-        .hidden {
-            display: none;
+        /* 모달 스타일 */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 400px; 
+            text-align: center;
+        }
+        .modal button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #80ED99;
+            color: white;
+            cursor: pointer;
+        }
+        .modal button:hover {
+            background-color: #68d484;
         }
     </style>
 </head>
@@ -28,7 +58,7 @@
     <div class="idiom">
         <div class="test">
             <div class="point">
-                <h2 id="progress">1 / 20개</h2>
+                <h2 id="progress">1 / 10개</h2>
             </div>
             <div id="questions-container">
                 <!-- 문제들이 동적으로 추가될 것입니다. -->
@@ -39,19 +69,16 @@
         </div>
     </div>
 
+    <!-- 모달창 -->
+    <div id="congrats-modal" class="modal">
+        <div class="modal-content">
+            <h2>참 잘했어요!</h2>
+            <button id="close-modal-button">닫기</button>
+        </div>
+    </div>
+
     <script>
         const questions = [
-            {
-                text: '과유불급',
-                desc: '정도가 지나친 것은 부족한 것보다 못하다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: false },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: true }
-                ]
-            },
-            // 19개의 문제를 더 추가합니다.
             {
                 text: '구사일생',
                 desc: '아홉 번 죽을 뻔하다 한 번 살아난다는 뜻으로 죽을 고비를 여러 번 넘기고 간신히 목숨을 건진다는 말',
@@ -151,96 +178,6 @@
                     { text: '風飛霜降', correct: false },
                     { text: '風餐露宿', correct: false }
                 ]
-            },
-            {
-                text: '대기만성',
-                desc: '큰 그릇은 늦게 이루어짐, 큰 인물이 되기 위해 많은 노력과 시간이 필요함',
-                options: [
-                    { text: '大器晩成', correct: true },
-                    { text: '大同小異', correct: false },
-                    { text: '大義滅親', correct: false },
-                    { text: '大恩大德', correct: false }
-                ]
-            },
-            {
-                text: '자승자박',
-                desc: '자기가 만든 줄로 자기를 묶는다, 자신이 한 말과 행동에 자신이 구속되어 곤란하게 됨',
-                options: [
-                    { text: '自繩自縛', correct: true },
-                    { text: '自强不息', correct: false },
-                    { text: '自暴自棄', correct: false },
-                    { text: '自業自得', correct: false }
-                ]
-            },
-            {
-                text: '일희일비',
-                desc: '한번 기뻐하고 한번 슬퍼함, 기쁜 일과 슬픈 일이 번갈아 일어남',
-                options: [
-                    { text: '一喜一悲', correct: true },
-                    { text: '一攫千金', correct: false },
-                    { text: '一瀉千里', correct: false },
-                    { text: '一石二鳥', correct: false }
-                ]
-            },
-            {
-                text: '고군분투',
-                desc: '적은 병력으로 분투함, 어려운 상황에서 혼자 힘들게 싸움',
-                options: [
-                    { text: '孤軍奮闘', correct: true },
-                    { text: '高枕安眠', correct: false },
-                    { text: '苦肉之策', correct: false },
-                    { text: '孤掌難鳴', correct: false }
-                ]
-            },
-            {
-                text: '행운유수',
-                desc: '물 흐르듯 자연스럽고 막힘이 없음',
-                options: [
-                    { text: '行雲流水', correct: true },
-                    { text: '鶴首苦待', correct: false },
-                    { text: '學而不厭', correct: false },
-                    { text: '焚書坑儒', correct: false }
-                ]
-            },
-            {
-                text: '유구무언',
-                desc: '입은 있으나 말이 없다, 변명할 말이 없음',
-                options: [
-                    { text: '有口無言', correct: true },
-                    { text: '有名無實', correct: false },
-                    { text: '有始有終', correct: false },
-                    { text: '有備無患', correct: false }
-                ]
-            },
-            {
-                text: '백발백중',
-                desc: '쏠 때마다 백 번을 맞춤, 무슨 일이나 틀림없이 잘 맞음',
-                options: [
-                    { text: '百發百中', correct: true },
-                    { text: '百折不撓', correct: false },
-                    { text: '百家爭鳴', correct: false },
-                    { text: '百聞不如一見', correct: false }
-                ]
-            },
-            {
-                text: '청산유수',
-                desc: '말을 청산유수처럼 잘함, 말을 거침없이 잘함',
-                options: [
-                    { text: '靑山流水', correct: true },
-                    { text: '靑雲之志', correct: false },
-                    { text: '靑出於藍', correct: false },
-                    { text: '靑眼白眼', correct: false }
-                ]
-            },
-            {
-                text: '이심전심',
-                desc: '말하지 않아도 마음에서 마음으로 전함',
-                options: [
-                    { text: '以心傳心', correct: true },
-                    { text: '二律背反', correct: false },
-                    { text: '二者擇一', correct: false },
-                    { text: '二重人格', correct: false }
-                ]
             }
         ];
 
@@ -291,18 +228,27 @@
                 loadQuestion(currentQuestionIndex);
                 document.getElementById('progress').innerText = `${currentQuestionIndex + 1} / ${questions.length}개`;
             } else {
-                alert('모든 문제를 완료했습니다!');
-                window.location.href = 'index.html'; // 모든 문제를 완료하면 index.html로 이동
+                showModal();
             }
         }
 
-        // 첫 번째 문제 로드
-        loadQuestion(currentQuestionIndex);
+        function showModal() {
+            const modal = document.getElementById('congrats-modal');
+            modal.style.display = 'block';
+        }
 
-        // 잘 모르겠어요 버튼 클릭 시 다음 문제로 이동
         document.getElementById('skip-button').addEventListener('click', function() {
             nextQuestion();
         });
+
+        document.getElementById('close-modal-button').addEventListener('click', function() {
+            const modal = document.getElementById('congrats-modal');
+            modal.style.display = 'none';
+            window.location.href = 'index.html';
+        });
+
+        // 첫 번째 문제 로드
+        loadQuestion(currentQuestionIndex);
     </script>
 </body>
 </html>
