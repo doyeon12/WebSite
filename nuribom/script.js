@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 로그아웃 버튼 클릭 시 메시지 표시
     const logoutButton = document.getElementById('logout-button');
     logoutButton.addEventListener('click', function() {
-        alert('먼저 로그인을 해주세요.');
-        location.href ="log.html";
+        confirm('로그아웃 하시겠습니까?');
+        location.href ="index.html";
     });
 
     // 오디오 관련 코드

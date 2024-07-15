@@ -15,7 +15,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
     if (username && password) {
         alert('로그인 성공');
         // 로그인 성공 시 index.html로 이동
-        window.location.href = 'index.html';
+        window.location.href = 'log2.html';
     } else {
         alert('아이디와 비밀번호를 입력해주세요.');
     }
