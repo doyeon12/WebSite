@@ -127,4 +127,5 @@ header {
     align-items: center;
     flex-direction: column;
     gap: 40px;
+    font-size: 18px;
 }
