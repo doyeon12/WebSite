@@ -82,6 +82,10 @@ header {
     align-items: center;
 }
 
+.headerBtn > a {
+    visibility: hidden;
+}
+
 .headerBtn > button {
     color: #fff;
     background-color: transparent;
