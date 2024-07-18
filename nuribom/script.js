@@ -29,12 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('영어만 사용 가능');
         } else {
             alert('로그인 성공!');
-            // 입력 필드 값을 지우기
             idInput.value = '';
             passwordInput.value = '';
-            // 홈 페이지로 리다이렉트
-            window.location.href = 'index.html'; // 홈 페이지의 URL을 적어주세요
-            // 로그아웃 버튼 보이기
+            window.location.href = 'index.html';
             logoutButton.style.display = 'inline-block';
         }
     });
@@ -45,11 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (confirm('로그아웃 하시겠습니까?')) {
             alert('다시 로그인을 시도해 주세요.');
             location.href ="index.html";
-        } else {
-
         }
-        
-
     });
 
     // 오디오 관련 코드
@@ -98,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevButton = document.querySelector('.idiom-main button:first-of-type');
     const nextButton = document.querySelector('.idiom-main button:last-of-type');
 
-    let currentIndex = 0; // 인덱스를 0으로 초기화
+    let currentIndex = 0;
 
     // 힌트 업데이트 함수
     function updateHint() {

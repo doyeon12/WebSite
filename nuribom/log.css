@@ -92,3 +92,7 @@ a {
 input::placeholder {
     padding: 10px;
 }
+
+input:focus {
+    outline: border 1px solid black;
+}
