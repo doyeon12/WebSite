@@ -46,34 +46,6 @@ header {
     display: none;
 }
 
-.inBox {
-    position: relative;
-    width: 800px;
-    height: 100px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.inBox > input {
-    width: 250px;
-    height: 35px;
-    border-radius: 30px;
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-.inBox > svg {
-    position: absolute;
-    left: 770px;
-}
-
-.inBox > input::placeholder {
-    color: #fff;
-    padding: 10px;
-}
-
 .headerBtn {
     width: 300px;
     height: 100px;
@@ -508,22 +480,6 @@ nav {
 
 #idiom-text {
     font-size: 30px;
-
-}
-
-.icon {
-    position: absolute;
-    width: 500px;
-    height: 50px;
-    display: flex;
-    justify-content: right;
-    bottom: 0;
-}
-
-.icon > svg {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
 }
 
 /* con2 영역 */

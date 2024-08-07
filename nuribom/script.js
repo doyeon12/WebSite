@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 로그인 관련 코드
-    const loginButton = document.querySelector('.headerBtn button:nth-of-type(1)');
+    const loginButton = document.querySelector('.headerBtn a'); // Select the login link
     const loginModal = document.querySelector('.logb');
     const closeButton = document.querySelector('.logb .close1');
     const loginSubmitButton = document.querySelector('.logb .push');
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     loginSubmitButton.addEventListener('click', function () {
         const idInput = loginModal.querySelector('input[type="text"]');
         const passwordInput = loginModal.querySelector('input[type="password"]');
-        
+
         // 아이디에 한글이 포함되었는지 확인
         const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-        
+
         if (idInput.value.trim() === '' || passwordInput.value.trim() === '') {
             alert('다시 시도해주세요.');
         } else if (koreanRegex.test(idInput.value)) {
@@ -38,24 +38,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 로그아웃 버튼 클릭 시 메시지 표시
     const logoutButton = document.getElementById('logout-button');
-    logoutButton.addEventListener('click', function() {
-        if (confirm('로그아웃 하시겠습니까?')) {
-            alert('다시 로그인을 시도해 주세요.');
-            location.href ="index.html";
-        }
-    });
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function () {
+            if (confirm('로그아웃 하시겠습니까?')) {
+                alert('다시 로그인을 시도해 주세요.');
+                location.href = "index.html";
+            }
+        });
+    }
 
     // 오디오 관련 코드
     const audioIcon = document.getElementById('audio-icon');
     const audio = document.getElementById('audio');
 
-    audioIcon.addEventListener('click', function () {
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    });
+    if (audioIcon && audio) {
+        audioIcon.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+    }
 
     // 사자성어 슬라이드 기능 및 힌트 업데이트
     const idioms = [
