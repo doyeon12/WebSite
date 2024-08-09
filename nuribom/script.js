@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const loginSubmitButton = document.querySelector('.logb .push');
 
     // 로그인 버튼 클릭 시 로그인 모달 열기
-    loginButton.addEventListener('click', function () {
+    loginButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
         loginModal.style.display = 'block';
     });
 
@@ -31,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('로그인 성공!');
             idInput.value = '';
             passwordInput.value = '';
-            window.location.href = 'index.html';
-            logoutButton.style.display = 'inline-block';
+            window.location.href = 'index.html'; // Redirect after successful login
+            logoutButton.style.display = 'inline-block'; // Show logout button
         }
     });
 
@@ -47,19 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 오디오 관련 코드
-    const audioIcon = document.getElementById('audio-icon');
-    const audio = document.getElementById('audio');
-
-    if (audioIcon && audio) {
-        audioIcon.addEventListener('click', function () {
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        });
-    }
 
     // 사자성어 슬라이드 기능 및 힌트 업데이트
     const idioms = [
