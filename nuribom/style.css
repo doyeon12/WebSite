@@ -131,7 +131,7 @@ header {
 }
 
 .test-items > p {
-    background-color: gray;
+    background-color: blue;
     width: 70px;
     display: flex;
     justify-content: center;
