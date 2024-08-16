@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style04.css">
+    <link rel="stylesheet" href="style01.css">
     <title>Document</title>
     <style>
         .correct {
@@ -12,6 +12,7 @@
         .incorrect {
             border: 2px solid red;
         }
+        /* 모달 스타일 */
         .modal {
             display: none; 
             position: fixed; 
@@ -45,13 +46,17 @@
         }
         .button-container {
             display: flex;
-            justify-content: center;
-            gap: 10px;
             margin-top: 20px;
         }
         .button-container button {
             padding: 10px;
             font-size: 1em;
+            cursor: pointer;
+            margin-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        #unknown-btn {
             cursor: pointer;
         }
     </style>
@@ -70,540 +75,342 @@
                 <h2 id="progress">1 / 50개</h2>
             </div>
             <div id="questions-container"></div>
-            <div class="unkown">
+            <div class="unknown">
                 <p id="unknown-btn">잘 모르겠어요</p>
             </div>
         </div>
     </div>
 
+    <!-- 모달창 -->
     <div id="congrats-modal" class="modal">
         <div class="modal-content">
             <h2>참 잘했어요!</h2>
-            <h1>100/100</h1>
+            <h1 id="score-display">0 / 0개</h1>
             <button id="close-modal-button">닫기</button>
         </div>
     </div>
 
     <script>
         const questions = [
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
-            {
-                text: '고진감래',
-                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
-                options: [
-                    { text: '九死一生', correct: false },
-                    { text: '苦盡甘來', correct: true },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            }
+            // 문제 데이터
+            { text: '고진감래', desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말', options: [
+                { text: '九死一生', correct: false },
+                { text: '苦盡甘來', correct: true },
+                { text: '刮目相對', correct: false },
+                { text: '近墨者黑', correct: false }
+            ]},
+            { text: '사면초가', desc: '사방이 모두 적에게 포위되어 있다, 도움이 없는 곤란한 지경에 빠짐', options: [
+                { text: '四面楚歌', correct: true },
+                { text: '天高馬肥', correct: false },
+                { text: '指鹿爲馬', correct: false },
+                { text: '名不虛傳', correct: false }
+            ]},
+            { text: '역지사지', desc: '다른 사람의 입장에서 생각하라', options: [
+                { text: '自强不息', correct: false },
+                { text: '和光同塵', correct: false },
+                { text: '易地思之', correct: true },
+                { text: '風樹之嘆', correct: false }
+            ]},
+            { text: '일석이조', desc: '하나를 해서 두 가지 좋은 결과를 얻음', options: [
+                { text: '一石二鳥', correct: true },
+                { text: '千篇一律', correct: false },
+                { text: '掩耳盜鈴', correct: false },
+                { text: '烏飛梨落', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]},
+            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
+                { text: '靑出於藍', correct: true },
+                { text: '明若觀火', correct: false },
+                { text: '磨斧作針', correct: false },
+                { text: '大器晩成', correct: false }
+            ]}
         ];
 
-        const questionContainer = document.getElementById('questions-container');
-        const progressElement = document.getElementById('progress');
-
         let currentQuestionIndex = 0;
+        let score = 0;
 
         function showQuestion(index) {
-            questionContainer.innerHTML = '';
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
             const question = questions[index];
 
             const questionText = document.createElement('h1');
             questionText.textContent = question.text;
-            questionContainer.appendChild(questionText);
+            container.appendChild(questionText);
 
             const questionDesc = document.createElement('h2');
             questionDesc.textContent = question.desc;
-            questionContainer.appendChild(questionDesc);
+            container.appendChild(questionDesc);
 
             const buttonContainer = document.createElement('div');
             buttonContainer.classList.add('button-container');
@@ -615,21 +422,22 @@
                 buttonContainer.appendChild(optionButton);
             });
 
-            questionContainer.appendChild(buttonContainer);
+            container.appendChild(buttonContainer);
         }
 
         function handleAnswer(optionButton, isCorrect) {
             if (isCorrect) {
                 optionButton.classList.add('correct');
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    setTimeout(() => {
+                score++;
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
                         showQuestion(currentQuestionIndex);
-                        progressElement.textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
-                    }, 1000);
-                } else {
-                    showCongratsModal();
-                }
+                        document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
+                    } else {
+                        showCongratsModal();
+                    }
+                }, 1000);
             } else {
                 optionButton.classList.add('incorrect');
             }
@@ -637,19 +445,20 @@
 
         function showCongratsModal() {
             const modal = document.getElementById('congrats-modal');
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.textContent = `${score} / ${questions.length}개`;
             modal.style.display = 'block';
         }
 
-        const closeModalButton = document.getElementById('close-modal-button');
-        closeModalButton.addEventListener('click', () => {
-            window.location.href = 'log2.html'; // Redirect to index.html
+        document.getElementById('close-modal-button').addEventListener('click', () => {
+            window.location.href = 'log2.html';
         });
 
         document.getElementById('unknown-btn').addEventListener('click', () => {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 showQuestion(currentQuestionIndex);
-                progressElement.textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
+                document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
             } else {
                 showCongratsModal();
             }

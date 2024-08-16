@@ -73,7 +73,7 @@
     <div id="congrats-modal" class="modal">
         <div class="modal-content">
             <h2>참 잘했어요!</h2>
-            <h1>5/5개</h1>
+            <h1 id="score-display">0/0개</h1>
             <button id="close-modal-button">닫기</button>
         </div>
     </div>
@@ -133,6 +133,7 @@
         ];
 
         let currentQuestionIndex = 0;
+        let score = 0; // 사용자의 점수를 추적하는 변수
 
         function loadQuestion(index) {
             const container = document.getElementById('questions-container');
@@ -151,7 +152,7 @@
             const optionsDiv = document.createElement('div');
             optionsDiv.className = 'hanja';
 
-            question.options.forEach((option, i) => {
+            question.options.forEach((option) => {
                 const button = document.createElement('button');
                 button.innerText = option.text;
                 button.setAttribute('data-correct', option.correct);
@@ -159,6 +160,7 @@
                     if (option.correct) {
                         button.classList.add('correct');
                         button.classList.remove('incorrect');
+                        score++; // 정답일 때 점수 증가
                         setTimeout(() => {
                             nextQuestion();
                         }, 1000); // 1초 후 다음 문제로 이동
@@ -185,6 +187,8 @@
 
         function showModal() {
             const modal = document.getElementById('congrats-modal');
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.innerText = `${score}/${questions.length}개`; // 점수 표시
             modal.style.display = 'block';
         }
 
