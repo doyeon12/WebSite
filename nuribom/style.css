@@ -11,7 +11,6 @@ body a {
     text-decoration: none;
     color: inherit;
 }
-
 svg {
     cursor: pointer;
 }
@@ -52,16 +51,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-
-
-.headerBtn > button {
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    margin-left: 10px;
-    cursor: pointer;
 }
 
 .headerBtn > input {
@@ -131,7 +120,7 @@ header {
 }
 
 .test-items > p {
-    background-color: blue;
+    background-color: gray;
     width: 70px;
     display: flex;
     justify-content: center;
