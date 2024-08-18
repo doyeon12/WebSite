@@ -108,11 +108,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // 초기 텍스트 설정
     idiomText.textContent = idioms[currentIndex];
     updateHint();
-
-    // function out(){
-    //     alert("로그아웃 하시겠습니까?");
-    // }
-    // if(out){
-    //     location.href="index.html"
-    // }
 });
