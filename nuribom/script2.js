@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     // 사자성어 슬라이드 기능 및 힌트 업데이트
     const idioms = [
         '고진감래(苦盡甘來)',
@@ -78,34 +77,50 @@ document.addEventListener('DOMContentLoaded', function () {
         '서리지탄(黍離之歎)': '나라가 멸망하여 옛 궁궐터에는 기장만이 무성한 것을 탄식한다는 뜻으로, 세상의 영고성쇠가 무상함을 탄식하며 이르는 말'
     };
 
+    const examples = {
+        '고진감래(苦盡甘來)': '그는 힘든 일을 겪은 후, 고진감래의 기쁨을 맛보았다.',
+        '구사일생(九死一生)': '영화 속 주인공은 여러 차례 구사일생의 순간을 겪으면서 성장하게 되었다.',
+        '과유불급(過猶不及)': '과유불급이라는 말처럼, 모든 일에는 적절한 균형이 필요하다.',
+        '괄목상대(刮目相對)': '친구의 놀라운 성장에 괄목상대하지 않을 수 없었다.',
+        '근묵자흑(近墨者黑)': '좋은 사람들과 함께하면 근묵자흑의 영향에서 벗어날 수 있다.',
+        '다다익선(多多益善)': '자원이 많으면 다다익선이라지만, 너무 많아도 관리가 힘들다.',
+        '각자도생(各自圖生)': '비상 상황에서는 각자도생의 자세가 필요하다.',
+        '금의야행(錦衣夜行)': '그의 성과는 아무도 알아주지 않아 금의야행이나 다름없었다.',
+        '능소능대(能小能大)': '그는 능소능대의 인재로서 회사의 핵심 역할을 맡고 있다.',
+        '비육지탄(髀肉之歎)': '비육지탄의 시간을 보내지 않기 위해 꾸준히 노력해야 한다.',
+        '서리지탄(黍離之歎)': '옛날의 영화를 회상하며 서리지탄의 감정을 느꼈다.'
+    };
+
     const idiomText = document.getElementById('idiom-text');
     const hintText = document.querySelector('.hint-text p');
+    const exampleText = document.querySelector('.ex-text p');
     const prevButton = document.querySelector('.idiom-main button:first-of-type');
     const nextButton = document.querySelector('.idiom-main button:last-of-type');
 
-    let currentIndex = 0;
+    let currentIndex = 1;  // 초기 인덱스는 1 (구사일생)
 
-    // 힌트 업데이트 함수
-    function updateHint() {
+    // 힌트와 예시 업데이트 함수
+    function updateContent() {
         const currentIdiom = idioms[currentIndex];
         hintText.textContent = hints[currentIdiom];
+        exampleText.textContent = examples[currentIdiom];
     }
 
     // 이전 버튼 클릭 시
     prevButton.addEventListener('click', function () {
         currentIndex = (currentIndex - 1 + idioms.length) % idioms.length;
         idiomText.textContent = idioms[currentIndex];
-        updateHint();
+        updateContent();
     });
 
     // 다음 버튼 클릭 시
     nextButton.addEventListener('click', function () {
         currentIndex = (currentIndex + 1) % idioms.length;
         idiomText.textContent = idioms[currentIndex];
-        updateHint();
+        updateContent();
     });
 
     // 초기 텍스트 설정
     idiomText.textContent = idioms[currentIndex];
-    updateHint();
+    updateContent();
 });
