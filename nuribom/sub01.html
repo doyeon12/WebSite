@@ -3,15 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style01.css">
     <title>Document</title>
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif; /* 세련된 한글 폰트 적용 */
+            background: linear-gradient(to right, #43cea2, #185a9d); /* 배경에 그라데이션 추가 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* 헤더 배경 반투명 처리 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .head {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h1 a {
+            text-decoration: none;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .idiom {
+            background: rgba(255, 255, 255, 0.8); /* 내용 영역 배경 반투명 */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .point h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .hanja {
+            width: 700px;
+            display: flex;
+        }
+
+        .hanja button {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            border: 2px solid transparent;
+            background-color: #eee;
+            color: #333;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .hanja button:hover {
+            background-color: #80ed99;
+            color: white;
+            transform: scale(1.05); /* 버튼을 살짝 확대 */
+        }
+
         .correct {
             border: 2px solid #80ED99;
         }
+
         .incorrect {
             border: 2px solid red;
         }
+
+        /* '잘 모르겠어요' 버튼 */
+        .unkown p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #888;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
         /* 모달 스타일 */
         .modal {
             display: none; 
@@ -22,26 +112,39 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.4); 
+            background-color: rgba(0,0,0,0.6); 
         }
+
         .modal-content {
-            background-color: #fefefe;
+            background-color: white;
             margin: 15% auto; 
-            padding: 20px;
+            padding: 30px;
+            border-radius: 10px;
             border: 1px solid #888;
             width: 80%; 
             max-width: 400px; 
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .modal-content h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
         .modal button {
             margin-top: 20px;
             padding: 10px 20px;
             border: none;
+            border-radius: 10px;
             background-color: #80ED99;
             color: white;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
         }
+
         .modal button:hover {
             background-color: #68d484;
         }
