@@ -3,15 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style02.css">
     <title>Document</title>
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif; /* 세련된 한글 폰트 적용 */
+            background: linear-gradient(to right, #43cea2, #185a9d); /* 배경에 그라데이션 추가 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* 헤더 배경 반투명 처리 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .head {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h1 a {
+            text-decoration: none;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .idiom {
+            background: rgba(255, 255, 255, 0.8); /* 내용 영역 배경 반투명 */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .point h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .hanja {
+            width: 700px;
+            display: flex;
+        }
+
+        .hanja button {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            border: 2px solid transparent;
+            background-color: #eee;
+            color: #333;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .hanja button:hover {
+            background-color: #80ed99;
+            color: white;
+            transform: scale(1.05); /* 버튼을 살짝 확대 */
+        }
+
         .correct {
             border: 2px solid #80ED99;
         }
+
         .incorrect {
             border: 2px solid red;
         }
+
+        /* '잘 모르겠어요' 버튼 */
+        .unkown p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #888;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
         /* 모달 스타일 */
         .modal {
             display: none; 
@@ -22,26 +112,39 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.4); 
+            background-color: rgba(0,0,0,0.6); 
         }
+
         .modal-content {
-            background-color: #fefefe;
+            background-color: white;
             margin: 15% auto; 
-            padding: 20px;
+            padding: 30px;
+            border-radius: 10px;
             border: 1px solid #888;
             width: 80%; 
             max-width: 400px; 
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .modal-content h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
         .modal button {
             margin-top: 20px;
             padding: 10px 20px;
             border: none;
+            border-radius: 10px;
             background-color: #80ED99;
             color: white;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
         }
+
         .modal button:hover {
             background-color: #68d484;
         }
@@ -73,23 +176,13 @@
     <div id="congrats-modal" class="modal">
         <div class="modal-content">
             <h2>참 잘했어요!</h2>
-            <h1>10/10</h1>
+            <h1 id="score-display">0/0개</h1>
             <button id="close-modal-button">닫기</button>
         </div>
     </div>
 
     <script>
         const questions = [
-            {
-                text: '구사일생',
-                desc: '아홉 번 죽을 뻔하다 한 번 살아난다는 뜻으로 죽을 고비를 여러 번 넘기고 간신히 목숨을 건진다는 말',
-                options: [
-                    { text: '九死一生', correct: true },
-                    { text: '苦盡甘來', correct: false },
-                    { text: '刮目相對', correct: false },
-                    { text: '近墨者黑', correct: false }
-                ]
-            },
             {
                 text: '고진감래',
                 desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
@@ -141,48 +234,59 @@
                 ]
             },
             {
-                text: '동문서답',
-                desc: '동쪽을 묻는데 서쪽을 답함, 질문에 맞지 않는 엉뚱한 대답',
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
                 options: [
-                    { text: '東問西答', correct: true },
-                    { text: '大器晩成', correct: false },
-                    { text: '畫龍點睛', correct: false },
-                    { text: '走馬看山', correct: false }
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
                 ]
             },
             {
-                text: '일편단심',
-                desc: '한 조각 붉은 마음, 한결같은 충성이나 변치 않는 마음',
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
                 options: [
-                    { text: '一片丹心', correct: true },
-                    { text: '一瀉千里', correct: false },
-                    { text: '一擧兩得', correct: false },
-                    { text: '一望無際', correct: false }
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
                 ]
             },
             {
-                text: '천고마비',
-                desc: '하늘은 높고 말은 살찐다, 가을을 뜻함',
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
                 options: [
-                    { text: '千慮一得', correct: false },
-                    { text: '千篇一律', correct: false },
-                    { text: '千里眼', correct: false },
-                    { text: '天高馬肥', correct: true }
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
                 ]
             },
             {
-                text: '풍수지탄',
-                desc: '바람과 나무의 탄식, 부모를 잃은 슬픔',
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
                 options: [
-                    { text: '風樹之嘆', correct: true },
-                    { text: '風前燈火', correct: false },
-                    { text: '風飛霜降', correct: false },
-                    { text: '風餐露宿', correct: false }
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
                 ]
             }
         ];
 
         let currentQuestionIndex = 0;
+        let score = 0; // 사용자의 점수를 추적하는 변수
 
         function loadQuestion(index) {
             const container = document.getElementById('questions-container');
@@ -201,7 +305,7 @@
             const optionsDiv = document.createElement('div');
             optionsDiv.className = 'hanja';
 
-            question.options.forEach((option, i) => {
+            question.options.forEach((option) => {
                 const button = document.createElement('button');
                 button.innerText = option.text;
                 button.setAttribute('data-correct', option.correct);
@@ -209,6 +313,7 @@
                     if (option.correct) {
                         button.classList.add('correct');
                         button.classList.remove('incorrect');
+                        score++; // 정답일 때 점수 증가
                         setTimeout(() => {
                             nextQuestion();
                         }, 1000); // 1초 후 다음 문제로 이동
@@ -235,6 +340,8 @@
 
         function showModal() {
             const modal = document.getElementById('congrats-modal');
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.innerText = `${score}/${questions.length}개`; // 점수 표시
             modal.style.display = 'block';
         }
 

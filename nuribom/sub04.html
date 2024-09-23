@@ -3,15 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style01.css">
     <title>Document</title>
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif; /* 세련된 한글 폰트 적용 */
+            background: linear-gradient(to right, #43cea2, #185a9d); /* 배경에 그라데이션 추가 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* 헤더 배경 반투명 처리 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .head {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h1 a {
+            text-decoration: none;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .idiom {
+            background: rgba(255, 255, 255, 0.8); /* 내용 영역 배경 반투명 */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .point h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .hanja {
+            width: 700px;
+            display: flex;
+        }
+
+        .hanja button {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            border: 2px solid transparent;
+            background-color: #eee;
+            color: #333;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .hanja button:hover {
+            background-color: #80ed99;
+            color: white;
+            transform: scale(1.05); /* 버튼을 살짝 확대 */
+        }
+
         .correct {
             border: 2px solid #80ED99;
         }
+
         .incorrect {
             border: 2px solid red;
         }
+
+        /* '잘 모르겠어요' 버튼 */
+        .unkown p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #888;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
         /* 모달 스타일 */
         .modal {
             display: none; 
@@ -22,42 +112,41 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgba(0,0,0,0.4); 
+            background-color: rgba(0,0,0,0.6); 
         }
+
         .modal-content {
-            background-color: #fefefe;
+            background-color: white;
             margin: 15% auto; 
-            padding: 20px;
+            padding: 30px;
+            border-radius: 10px;
             border: 1px solid #888;
             width: 80%; 
             max-width: 400px; 
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .modal-content h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
         .modal button {
             margin-top: 20px;
             padding: 10px 20px;
             border: none;
+            border-radius: 10px;
             background-color: #80ED99;
             color: white;
             cursor: pointer;
-        }
-        .modal button:hover {
-            background-color: #68d484;
-        }
-        .button-container {
-            display: flex;
-            margin-top: 20px;
-        }
-        .button-container button {
-            padding: 10px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-left: 30px;
-            margin-bottom: 40px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
         }
 
-        #unknown-btn {
-            cursor: pointer;
+        .modal button:hover {
+            background-color: #68d484;
         }
     </style>
 </head>
@@ -74,9 +163,11 @@
             <div class="point">
                 <h2 id="progress">1 / 50개</h2>
             </div>
-            <div id="questions-container"></div>
-            <div class="unknown">
-                <p id="unknown-btn">잘 모르겠어요</p>
+            <div id="questions-container">
+                <!-- 문제들이 동적으로 추가될 것입니다. -->
+            </div>
+            <div class="unkown">
+                <p id="skip-button">잘 모르겠어요</p>
             </div>
         </div>
     </div>
@@ -85,386 +176,587 @@
     <div id="congrats-modal" class="modal">
         <div class="modal-content">
             <h2>참 잘했어요!</h2>
-            <h1 id="score-display">0 / 0개</h1>
+            <h1 id="score-display">0/0개</h1>
             <button id="close-modal-button">닫기</button>
         </div>
     </div>
 
     <script>
         const questions = [
-            // 문제 데이터
-            { text: '고진감래', desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말', options: [
-                { text: '九死一生', correct: false },
-                { text: '苦盡甘來', correct: true },
-                { text: '刮目相對', correct: false },
-                { text: '近墨者黑', correct: false }
-            ]},
-            { text: '사면초가', desc: '사방이 모두 적에게 포위되어 있다, 도움이 없는 곤란한 지경에 빠짐', options: [
-                { text: '四面楚歌', correct: true },
-                { text: '天高馬肥', correct: false },
-                { text: '指鹿爲馬', correct: false },
-                { text: '名不虛傳', correct: false }
-            ]},
-            { text: '역지사지', desc: '다른 사람의 입장에서 생각하라', options: [
-                { text: '自强不息', correct: false },
-                { text: '和光同塵', correct: false },
-                { text: '易地思之', correct: true },
-                { text: '風樹之嘆', correct: false }
-            ]},
-            { text: '일석이조', desc: '하나를 해서 두 가지 좋은 결과를 얻음', options: [
-                { text: '一石二鳥', correct: true },
-                { text: '千篇一律', correct: false },
-                { text: '掩耳盜鈴', correct: false },
-                { text: '烏飛梨落', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]},
-            { text: '청출어람', desc: '제자나 후배가 스승이나 선배보다 나아짐', options: [
-                { text: '靑出於藍', correct: true },
-                { text: '明若觀火', correct: false },
-                { text: '磨斧作針', correct: false },
-                { text: '大器晩成', correct: false }
-            ]}
+            {
+                text: '고진감래',
+                desc: '괴로움이 다하면 달콤함이 온다는 뜻으로 고생 끝에 낙이 온다는 말',
+                options: [
+                    { text: '九死一生', correct: false },
+                    { text: '苦盡甘來', correct: true },
+                    { text: '刮目相對', correct: false },
+                    { text: '近墨者黑', correct: false }
+                ]
+            },
+            {
+                text: '사면초가',
+                desc: '사방이 모두 적에게 포위되어 있다, 도움이 없는 곤란한 지경에 빠짐',
+                options: [
+                    { text: '四面楚歌', correct: true },
+                    { text: '天高馬肥', correct: false },
+                    { text: '指鹿爲馬', correct: false },
+                    { text: '名不虛傳', correct: false }
+                ]
+            },
+            {
+                text: '역지사지',
+                desc: '다른 사람의 입장에서 생각하라',
+                options: [
+                    { text: '自强不息', correct: false },
+                    { text: '和光同塵', correct: false },
+                    { text: '易地思之', correct: true },
+                    { text: '風樹之嘆', correct: false }
+                ]
+            },
+            {
+                text: '일석이조',
+                desc: '하나를 해서 두 가지 좋은 결과를 얻음',
+                options: [
+                    { text: '一石二鳥', correct: true },
+                    { text: '千篇一律', correct: false },
+                    { text: '掩耳盜鈴', correct: false },
+                    { text: '烏飛梨落', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            },
+            {
+                text: '청출어람',
+                desc: '제자나 후배가 스승이나 선배보다 나아짐',
+                options: [
+                    { text: '靑出於藍', correct: true },
+                    { text: '明若觀火', correct: false },
+                    { text: '磨斧作針', correct: false },
+                    { text: '大器晩成', correct: false }
+                ]
+            }
         ];
 
         let currentQuestionIndex = 0;
-        let score = 0;
+        let score = 0; // 사용자의 점수를 추적하는 변수
 
-        function showQuestion(index) {
+        function loadQuestion(index) {
             const container = document.getElementById('questions-container');
-            container.innerHTML = '';
+            container.innerHTML = ''; // 기존 문제를 비움
 
             const question = questions[index];
 
             const questionText = document.createElement('h1');
-            questionText.textContent = question.text;
+            questionText.innerText = question.text;
             container.appendChild(questionText);
 
             const questionDesc = document.createElement('h2');
-            questionDesc.textContent = question.desc;
+            questionDesc.innerText = question.desc;
             container.appendChild(questionDesc);
 
-            const buttonContainer = document.createElement('div');
-            buttonContainer.classList.add('button-container');
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'hanja';
 
-            question.options.forEach(option => {
-                const optionButton = document.createElement('button');
-                optionButton.textContent = option.text;
-                optionButton.addEventListener('click', () => handleAnswer(optionButton, option.correct));
-                buttonContainer.appendChild(optionButton);
+            question.options.forEach((option) => {
+                const button = document.createElement('button');
+                button.innerText = option.text;
+                button.setAttribute('data-correct', option.correct);
+                button.addEventListener('click', function() {
+                    if (option.correct) {
+                        button.classList.add('correct');
+                        button.classList.remove('incorrect');
+                        score++; // 정답일 때 점수 증가
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 1000); // 1초 후 다음 문제로 이동
+                    } else {
+                        button.classList.add('incorrect');
+                        button.classList.remove('correct');
+                    }
+                });
+                optionsDiv.appendChild(button);
             });
 
-            container.appendChild(buttonContainer);
+            container.appendChild(optionsDiv);
         }
 
-        function handleAnswer(optionButton, isCorrect) {
-            if (isCorrect) {
-                optionButton.classList.add('correct');
-                score++;
-                setTimeout(() => {
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex < questions.length) {
-                        showQuestion(currentQuestionIndex);
-                        document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
-                    } else {
-                        showCongratsModal();
-                    }
-                }, 1000);
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+                document.getElementById('progress').innerText = `${currentQuestionIndex + 1} / ${questions.length}개`;
             } else {
-                optionButton.classList.add('incorrect');
+                showModal();
             }
         }
 
-        function showCongratsModal() {
+        function showModal() {
             const modal = document.getElementById('congrats-modal');
             const scoreDisplay = document.getElementById('score-display');
-            scoreDisplay.textContent = `${score} / ${questions.length}개`;
+            scoreDisplay.innerText = `${score}/${questions.length}개`; // 점수 표시
             modal.style.display = 'block';
         }
 
-        document.getElementById('close-modal-button').addEventListener('click', () => {
+        document.getElementById('skip-button').addEventListener('click', function() {
+            nextQuestion();
+        });
+
+        document.getElementById('close-modal-button').addEventListener('click', function() {
+            const modal = document.getElementById('congrats-modal');
+            modal.style.display = 'none';
             window.location.href = 'log2.html';
         });
 
-        document.getElementById('unknown-btn').addEventListener('click', () => {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion(currentQuestionIndex);
-                document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${questions.length}개`;
-            } else {
-                showCongratsModal();
-            }
-        });
-
-        showQuestion(currentQuestionIndex);
+        // 첫 번째 문제 로드
+        loadQuestion(currentQuestionIndex);
     </script>
 </body>
 </html>
