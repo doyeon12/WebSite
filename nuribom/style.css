@@ -65,7 +65,7 @@ header {
 }
 
 .log-btn {
-    width: 180px;
+    width: 140px;
     height: 50px;
     background-color: #00b4d8;
     border-radius: 15px;
@@ -74,7 +74,7 @@ header {
 }
 
 .log-btn:hover {
-    width: 180px;
+    width: 140px;
     height: 50px;
     background-color: #90e0ef;
     transition: all 0.3s;
@@ -241,6 +241,8 @@ header {
     width: 750px;
     height: 300px;
     background-color: #fff;
+    border: 1px solid black;
+    color: #111;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -430,6 +432,13 @@ nav {
     height: 50px;
     text-align: center;
     line-height: 50px;
+}
+
+.box6,
+.box7,
+.box8,
+.box9 > label {
+    color: #111;
 }
 
 .box1 > input {

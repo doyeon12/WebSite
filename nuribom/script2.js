@@ -1,52 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 로그인 관련 코드
-    const loginButton = document.querySelector('.headerBtn a'); // Select the login link
-    const loginModal = document.querySelector('.logb');
-    const closeButton = document.querySelector('.logb .close1');
-    const loginSubmitButton = document.querySelector('.logb .push');
 
-    // 로그인 버튼 클릭 시 로그인 모달 열기
-    loginButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        loginModal.style.display = 'block';
-    });
+    document.getElementById("logout-button").addEventListener("click",function() {
+        alert("로그아웃 하시겠습니까?")
+        window.location.href = "index.html"
+    })
 
-    // 닫기 버튼 클릭 시 로그인 모달 닫기
-    closeButton.addEventListener('click', function () {
-        loginModal.style.display = 'none';
-    });
-
-    // 로그인 제출 버튼 클릭 시 입력 값 확인
-    loginSubmitButton.addEventListener('click', function () {
-        const idInput = loginModal.querySelector('input[type="text"]');
-        const passwordInput = loginModal.querySelector('input[type="password"]');
-
-        // 아이디에 한글이 포함되었는지 확인
-        const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-
-        if (idInput.value.trim() === '' || passwordInput.value.trim() === '') {
-            alert('다시 시도해주세요.');
-        } else if (koreanRegex.test(idInput.value)) {
-            alert('영어만 사용 가능');
-        } else {
-            alert('로그인 성공!');
-            idInput.value = '';
-            passwordInput.value = '';
-            window.location.href = 'index.html'; // Redirect after successful login
-            logoutButton.style.display = 'inline-block'; // Show logout button
-        }
-    });
-
-    // 로그아웃 버튼 클릭 시 메시지 표시
-    const logoutButton = document.getElementById('logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', function () {
-            if (confirm('로그아웃 하시겠습니까?')) {
-                alert('다시 로그인을 시도해 주세요.');
-                location.href = "index.html";
-            }
-        });
-    }
 
     // 사자성어 슬라이드 기능 및 힌트 업데이트
     const idioms = [
