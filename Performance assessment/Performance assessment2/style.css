@@ -1,0 +1,669 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: "맑은 고딕","Malgun Gothic",serif;
+}
+
+ body a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body li {
+    list-style: none;
+}
+
+/* 헤더 영역 */
+header {
+    width: 100%;
+    height: 1100px;
+}
+
+header > img {
+    width: 100%;
+    height: 100%;
+}
+
+.header-box {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 1100px;
+}
+
+.head {
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+
+.logo {
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    color: #fff;
+}
+
+nav {
+    width: 800px;
+    height: 70px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+ul {
+    width: 600px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    width: 140px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #fff;
+    margin-top: 70px; /* li 요소를 아래로 이동 */
+}
+
+/* 헤더 아이템 영역 */
+.header-items {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-text {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+.h-text > h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+/* 메인 영역 */
+main {
+    width: 100%;
+    height: 800px;
+    display: flex;
+}
+
+main > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main-box {
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.m-text {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.m-text > h1 {
+    font-weight: 900;
+}
+
+/* 메인 이미지 영역 */
+.m-img {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-img > img {
+    width: 400px;
+    height: 500px;
+}
+
+/* 아이템1 영역 */
+.m-card1 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box1 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box1 > img {
+    position: relative;
+    width: 380px;
+    height: 300px;
+}
+
+.item1 {
+    position: absolute;
+    bottom: 200px;
+    width: 380px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.item1 > h3 {
+    width: 320px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+}
+
+.item1 > p {
+    font-size: 13px;
+    color: #bbb;
+}
+
+.item1 > input {
+    display: none;
+}
+
+.item1 > label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.item1 > label > svg {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* 아이템2 영역 */
+.m-card2 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box2 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box2 > img {
+    position: relative;
+    width: 360px;
+    height: 300px;
+}
+
+.item2 {
+    position: absolute;
+    bottom: 200px;
+    width: 360px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.item2 > h3 {
+    width: 320px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.item2 > p {
+    font-size: 13px;
+    color: #bbb;
+    width: 310px;
+}
+
+.item2 > input {
+    display: none;
+}
+
+.item2 > label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.item2 > label > svg {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* 아이템3 영역 */
+.m-card3 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box3 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box3 > img {
+    position: relative;
+    width: 360px;
+    height: 300px;
+}
+
+.item3 {
+    position: absolute;
+    bottom: 200px;
+    width: 360px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.item3 > h3 {
+    width: 360px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+}
+
+.item3 > p {
+    font-size: 13px;
+    color: #bbb;
+    width: 320px;
+}
+
+.item3 > input {
+    display: none;
+}
+
+.item3 > label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.item3 > label > svg {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* 아이템4 영역 */
+.m-card4 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box4 {
+    width: 400px;
+    height: 500px;
+}
+
+.m-box4 > img {
+    position: relative;
+    width: 360px;
+    height: 300px;
+}
+
+.item4 {
+    position: absolute;
+    bottom: 200px;
+    width: 360px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.item4 > h3 {
+    width: 360px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+}
+
+.item4 > p {
+    font-size: 13px;
+    color: #bbb;
+    width: 310px;
+}
+
+.item4 > input {
+    display: none;
+}
+
+.item4 > label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.item4 > label > svg {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+/* 모달 영역 */
+.modalb {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+}
+
+.box > img {
+    width: 600px;
+    height: 600px;
+}
+
+.Explain1 {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+.Explain1 > p {
+    font-size: 20px;
+}
+
+.close {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#modal1:checked~.modalb {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+}
+
+/* 모달2 */
+.modalb1 {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.box1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+}
+
+.box1 > img {
+    width: 600px;
+    height: 600px;
+}
+
+.Explain2 {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+.Explain2> p {
+    font-size: 22px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#modal2:checked~.modalb1 {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+}
+
+/* 모달3 */
+.modalb2 {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.box2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+}
+
+.box1 > img {
+    width: 600px;
+    height: 600px;
+}
+
+.Explain3 {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+.Explain3 > p {
+    font-size: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#modal3:checked~.modalb2 {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+}
+
+/* 아이템4 영역 */
+.modalb3 {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.box3 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+}
+
+.box3 > img {
+    width: 600px;
+    height: 600px;
+}
+
+.Explain4 {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+.Explain4 > p {
+    font-size: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#modal4:checked~.modalb3 {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+}
+
+/* 섹션 영역 */
+section {
+    width: 100%;
+    height: 800px;
+    display: flex;
+}
+
+/* 푸터 영역 */
+footer {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+.copyright {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}

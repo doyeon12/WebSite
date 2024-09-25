@@ -225,7 +225,7 @@ main > img {
 /* 서브 텍스트 영역 */
 .c1-text {
     position: relative;
-    width: 910px;
+    width: 990px;
     height: 600px;
     display: flex;
     justify-content: center;
