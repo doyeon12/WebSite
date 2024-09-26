@@ -39,7 +39,7 @@ header > img {
 }
 
 .logo {
-    width: 200px;
+    width: 250px;
     height: 70px;
     text-align: center;
     display: flex;
@@ -50,7 +50,7 @@ header > img {
 }
 
 nav {
-    width: 800px;
+    width: 900px;
     height: 70px;
     display: flex;
     justify-content: start;
@@ -58,18 +58,18 @@ nav {
 }
 
 ul {
-    width: 600px;
+    width: 900px;
     height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 li {
-    width: 140px;
+    width: 250px;
     height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 22px;
     color: #fff;
@@ -290,7 +290,7 @@ main > img {
 }
 
 .item3 > h3 {
-    width: 360px;
+    width: 320px;
     height: 50px;
     text-align: center;
     line-height: 50px;
@@ -350,7 +350,7 @@ main > img {
 }
 
 .item4 > h3 {
-    width: 360px;
+    width: 320px;
     height: 50px;
     text-align: center;
     line-height: 50px;
