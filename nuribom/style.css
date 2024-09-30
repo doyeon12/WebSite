@@ -65,7 +65,7 @@ header {
 }
 
 .log-btn {
-    width: 140px;
+    width: 150px;
     height: 50px;
     background-color: #00b4d8;
     border-radius: 15px;
@@ -99,7 +99,7 @@ header {
 }
 
 .l-header {
-    width: 500px;
+    width: 400px;
     height: 100px;
 }
 
@@ -108,7 +108,7 @@ header {
 }
 
 .l-main {
-    width: 500px;
+    width: 400px;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -123,7 +123,7 @@ header {
 }
 
 .login {
-    width: 500px;
+    width: 400px;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -136,7 +136,7 @@ header {
 }
 
 .sign {
-    width: 500px;
+    width: 400px;
     height: 50px;
 }
 
@@ -175,14 +175,20 @@ header {
     width: 90px;
     height: 40px;
     background-color: #111;
-    color: #fff;
     text-align: center;
     line-height: 40px;
     cursor: pointer;
+    border-bottom-left-radius: 15px;
+}
+
+.close2 > svg {
+    color: #fff;
+    width: 20px;
+    height: 20px;
 }
 
 .header-test {
-    width: 600px;
+    width: 400px;
     height: 70px;
     text-align: center;
     border-bottom: 1px solid black;
@@ -195,7 +201,7 @@ header {
 }
 
 .test-items {
-    width: 600px;
+    width: 450px;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -459,12 +465,14 @@ nav {
 
 .box {
     position: fixed;
-    width: 600px;
-    height: 500px;
-    background-color: #fff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 15px;
 }
 
 #modal1:checked~.modalb {
@@ -483,9 +491,12 @@ nav {
     height: 40px;
     background-color: #111;
     color: #fff;
-    text-align: center;
-    line-height: 40px;
     cursor: pointer;
+}
+
+#close > svg {
+    width: 20px;
+    height: 20px;
 }
 
 .stats {

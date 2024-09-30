@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("logout-button").addEventListener("click",function() {
-        alert("로그아웃 하시겠습니까?")
-        window.location.href = "index.html"
-    })
+        if(confirm("로그아웃 하시겠습니까?")) {
+            window.location.href = "index.html"
+        }
+    });
 
 
     // 사자성어 슬라이드 기능 및 힌트 업데이트
