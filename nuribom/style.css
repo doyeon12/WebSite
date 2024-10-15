@@ -169,9 +169,11 @@ header {
     height: 40px;
     background-color: #111;
     text-align: center;
-    line-height: 40px;
     cursor: pointer;
     border-bottom-left-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close2 > svg {
@@ -356,6 +358,10 @@ header {
 .review-text {
     width: 800px;
     height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #modal6:checked~.modalb6 {
@@ -498,7 +504,9 @@ nav {
     color: #fff;
     cursor: pointer;
     border-bottom-left-radius: 13px;
-    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #close > svg {
@@ -552,24 +560,22 @@ nav {
     background-color: #d3d3d3;
 }
 
-.idiom > .idiom-main > button {
-    width: 50px;
-    height: 50px;
+/* .idiom > .idiom-main > button {
+    width: 80px;
+    height: 80px;
     background-color: transparent;
-    background-color: #fff;
-    border: 1px solid black;
     border-radius: 35px;
     font-size: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
+    margin-left: 10px;
+    margin-right: 10px;
+} */
 
 .idiom-main {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px;
+    width: 800px;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -583,8 +589,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1100px;
-    max-width: 1100px;
+    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -598,8 +604,14 @@ nav {
 .idiom-main button {
     background-color: transparent;
     border: none;
-    font-size: 1.5rem;
     cursor: pointer;
+    width: 80px;
+    height: 80px;
+}
+
+.idiom-main > button > svg {
+    width: 40px;
+    height: 40px;
 }
 
 #idiom-text {
