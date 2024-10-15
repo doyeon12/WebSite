@@ -29,3 +29,11 @@ $nextbutton.addEventListener("click", nextEvent);
 function github(){
     window.open("https://github.com/doyeon12");
 }
+
+function instagram(){
+    window.open("https://www.instagram.com/");
+}
+
+function facebook(){
+    window.open("https://www.facebook.com/");
+}
