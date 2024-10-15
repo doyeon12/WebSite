@@ -25,3 +25,7 @@ const prevEvent = () => {
 
 $prevbutton.addEventListener("click", prevEvent);
 $nextbutton.addEventListener("click", nextEvent);
+
+function github(){
+    window.open("https://github.com/doyeon12");
+}
