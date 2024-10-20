@@ -1,0 +1,55 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "맑은 고딕","Malgun Gothic",serif;
+}
+
+body {
+    background-color: #231942;
+}
+
+header {
+    width: 100%;
+    padding: 15px 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #8d99ae;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    width: 700px;
+    height: 400px;
+}
+
+.selector-area {
+    margin-bottom: 20px;
+}
+
+select {
+    background-color: #e0e0e0;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.quote-display {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}

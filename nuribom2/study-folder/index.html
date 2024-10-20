@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <title>공부 사이트</title>
+</head>
+<body>
+    <header>
+        <h1>사자성어 명언 추천</h1>
+    </header>
+
+    <main>
+        <div class="selector-area">
+            <label for="idiomSelect">사자성어를 선택하세요:</label>
+            <select id="idiomSelect" onchange="showQuotes()">
+                <option value="">-- 선택 --</option>
+                <option value="불치하문 (不恥下問)">불치하문 (不恥下問)</option>
+                <option value="살신성인 (殺身成仁)">살신성인 (殺身成仁)</option>
+                <option value="심심상인 (心心相印)">심심상인 (心心相印)</option>
+            </select>
+        </div>
+
+        <div class="quote-display" id="quoteDisplay">
+            <p>관련 명언이 여기에 표시됩니다.</p>
+        </div>
+    </main>
+</body>
+</html>
