@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <title>유저 커뮤니케이션</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/nuribom2/index-folder/index.html"><h1>Idiom Tech</h1></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="comment-section">
+            <h2 class="com-head">댓글 작성</h2>
+            <textarea id="commentInput" placeholder="댓글을 입력하세요..."></textarea>
+            <button onclick="addComment()">댓글 등록</button>
+
+            <h2 class="com-main">댓글 목록</h2>
+            <div id="commentList"></div>
+        </div>
+    </main>
+</body>
+</html>
