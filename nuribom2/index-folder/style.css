@@ -167,9 +167,39 @@ li {
 /* 검색창 영역 */
 .select {
     width: 100%;
-    height: 100px;
-}x  
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.select > input {
+    position: relative;
+    width: 800px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #8d99ae;
+    font-size: 22px;
+}
+
+.search-btn {
+    position: absolute;
+    left: 530px;
+    width: 400px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn > svg {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 20px;
+}
+
+/* 사자성어 영역 */
 .idiom-items2 {
     width: 800px;
     height: 700px;
