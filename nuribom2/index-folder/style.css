@@ -2,7 +2,9 @@
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    font-family: "맑은 고딕","Malgun Gothic",serif;
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -182,21 +184,8 @@ li {
     font-size: 22px;
 }
 
-.search-btn {
-    position: absolute;
-    left: 530px;
-    width: 400px;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-btn > svg {
-    position: absolute;
-    left: 0;
-    width: 100px;
-    height: 20px;
+.select > input::placeholder {
+    padding: 10px 20px;
 }
 
 /* 사자성어 영역 */
