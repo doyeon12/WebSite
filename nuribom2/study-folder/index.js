@@ -22,7 +22,7 @@ const idioms = [
         quotes: [
             "마음으로 이해하는 것이 진정한 이해다.", "-공자-"
         ],
-        image: "/nuribom2/img/공자.jpg  "
+        image: "/nuribom2/img/공자.jpg "
     }
 ];
 
