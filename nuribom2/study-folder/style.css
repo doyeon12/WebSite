@@ -2,9 +2,7 @@
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Nanum Pen Script", cursive;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "맑은 고딕","Malgun Gothic",serif;
 }
 
 body {
