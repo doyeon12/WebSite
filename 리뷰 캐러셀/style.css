@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.back{
+    width: 100%;
+    height: 650px;
+    background-color: #eee;
+}
+
+.back h1{
+    padding-top: 100px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.window{
+    position: relative;
+    margin: 50px auto;
+    width: 1000px;
+    height: 450px;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px #ddd;
+    overflow: hidden;
+}
+
+.slider{
+    width: 4000px;
+    height: 100%;
+    display: flex;
+    transition: all 0.5s;
+}
+
+.card{
+    width: 1000px;
+    height: 450px;
+}
+
+.profile{
+    margin: 30px auto;
+    width: 120px;
+    height: 120px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.profile img{
+    width: 100%;
+    height: 100%;
+}
+
+.card h2{
+    text-align: center;
+}
+
+.card h3{
+    text-align: center;
+    padding: 15px;
+}
+
+.card p{
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
+}
+
+.btnBox{
+    bottom: 25px;
+    left: 250px;
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.prev, .next{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ddd;
+    font-weight: 900;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.random{
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #ddd;
+    font-weight: 900;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.next:hover,
+.prev:hover,
+.random:hover{
+    transition: all 0.5s;
+    background-color: #ddd;
+}
